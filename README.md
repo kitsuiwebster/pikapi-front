@@ -1,1 +1,1 @@
-# Pika pi - Front-end - WIP
+# Pikapi - Front-end - WIP
