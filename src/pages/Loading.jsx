@@ -9,6 +9,7 @@ const Loading = () => {
             <Layout>
                 <section id="loading">
                     <div className='loading'>
+                        <h1>Loading...</h1>
                     </div>
                 </section>
             </Layout>

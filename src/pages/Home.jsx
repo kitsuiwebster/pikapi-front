@@ -8,6 +8,9 @@ function Home() {
         <>
             <div id="home">
                 <UnderConstruction/>
+                <div className='home'>
+
+                </div>
             </div>
         </>
     );
