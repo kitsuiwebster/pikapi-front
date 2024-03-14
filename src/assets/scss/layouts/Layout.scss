@@ -12,9 +12,20 @@
         z-index: 3;
         width: 100%;
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
         align-items: center;
         padding: 0.4rem 0;
+
+        &-logo {
+            width: 4rem;
+            height: 4rem;
+            margin-left: 1rem;
+            transition: transform 0.2s;
+
+            &:hover {
+                transform: scale(1.1) rotate(180deg);
+            }
+        }
 
         &-toggle {
             display: flex;
