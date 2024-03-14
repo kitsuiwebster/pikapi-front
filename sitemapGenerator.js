@@ -11,7 +11,7 @@ const createSitemap = (routes) => {
 ${routes
         .map(({ path, changefreq, priority }) => `
     <url>
-        <loc>https://kitsuiwebster.com${path}</loc>
+        <loc>https://pikapi.co${path}</loc>
         <lastmod>${new Date().toISOString()}</lastmod>
         <changefreq>${changefreq}</changefreq>
         <priority>${priority}</priority>
