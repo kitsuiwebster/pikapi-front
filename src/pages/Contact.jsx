@@ -7,7 +7,7 @@ function Contact() {
     const form = useRef();
 
     useEffect(() => {
-        emailjs.init("vd4aNiTObECtdQxS9"); 
+        emailjs.init("vd4aNiTObECtdQxS9");
     }, []);
 
     const sendEmail = (e) => {
@@ -17,7 +17,7 @@ function Contact() {
             .then((result) => {
                 console.log(result.text);
             }, (error) => {
-                console.log(error.text); 
+                console.log(error.text);
             });
     };
 
@@ -29,13 +29,17 @@ function Contact() {
                     <div className='contact-form'>
                         <form className='contact-form-form' ref={form} onSubmit={sendEmail}>
                             <div className='contact-form-label'>Name</div>
-                            <input type="text" name="user_name" /> 
+                            <input type="text" name="user_name" />
                             <div className='contact-form-label'>Email</div>
-                            <input type="email" name="user_email" /> 
+                            <input type="email" name="user_email" />
                             <div className='contact-form-label'>Message</div>
-                            <textarea className='contact-form-textarea' name="message" /> 
+                            <textarea className='contact-form-textarea' name="message" />
                             <input className='contact-form-button' type="submit" value="Send" />
                         </form>
+                    </div>
+                    <div className='contact-ig'>
+                        <p className='contact-ig-text'>Feel free to reach out to us directly on Instagram, though please note that responses may be less immediate there.</p>
+                        <a className='contact-ig-link' href="https://www.instagram.com/ai.pikachu/" target="_blank" rel="noopener noreferrer">Instagram @ai.pikachu</a>
                     </div>
                 </div>
             </div>
