@@ -24,9 +24,9 @@
         color: black;
         font-size: 16px;
         font-weight: bold;
-        padding: 0.8rem 1.3rem;
+        padding: 0.6rem 1rem;
         border: 2px solid black;
-        border-radius: 12px;
+        border-radius: 10px;
         cursor: pointer;
         transition: background-color 0.3s ease;
         margin-top: 2rem;
@@ -36,9 +36,15 @@
             color: white;
         }
 
-        &:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.5);
+        .dark & {
+            border: 2px solid white;
+            color: white;
+            background-color: black;
+
+            &:hover {
+                background-color: white;
+                color: black;
+            }
         }
     }
 
