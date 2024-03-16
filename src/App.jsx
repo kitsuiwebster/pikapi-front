@@ -9,6 +9,8 @@ import About from './pages/About';
 import Pikadex from './pages/Pikadex';
 import NotFound from './pages/NotFound';
 import Contact from './pages/Contact';
+import Favourites from './pages/Favourites';
+import Account from './pages/Account';
 
 const App = () => {
   return (
@@ -21,6 +23,8 @@ const App = () => {
             <Route path="/pikadex" element={<Layout><AppWrapper><Pikadex /></AppWrapper></Layout>} />
             <Route path="/*" element={<Layout><AppWrapper><NotFound /></AppWrapper></Layout>} />
             <Route path="/contact" element={<Layout><AppWrapper><Contact /></AppWrapper></Layout>} />
+            <Route path="/favourites" element={<Layout><AppWrapper><Favourites /></AppWrapper></Layout>} />
+            <Route path="/account" element={<Layout><AppWrapper><Account /></AppWrapper></Layout>} />
           </Routes>
       </ThemeProvider>
     </Router>
