@@ -1,28 +1,61 @@
-
 .side-menu {
     display: flex;
     flex-direction: column;
     position: fixed;
     align-items: center;
+    justify-content: center;
     left: 0;
+    transition: width 0.3s ease;
+    width: 4rem;
+    padding: 0 0.8rem;
+    overflow: hidden;
+    background-color: white;
 
-    &-heart,
-    &-about,
-    &-contact {
+    .dark & {
+        background-color: black;
+    }
+
+    &:hover {
+        width: auto;
+        align-items: flex-start;
+        padding: 0 1.3rem;
+    }
+
+    &-link {
+        text-decoration: none;
+    }
+
+    &-item {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        text-align: center;
         height: auto;
-        margin-left: 1.05rem;
-        margin-bottom: 0.7rem;
+        margin: 0.4rem 0;
+        width: 100%;
     }
 
-    &-heart {
-        width: 3rem;
+    &-icon {
+        width: 2.5rem;
+        height: auto;
+        margin-right: 0.5rem;
     }
 
-    &-about {
-        width: 2.7rem;
+    &-text {
+        display: none;
+        white-space: nowrap;
+        margin-left: 0.5rem;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        text-align: left;
+        color: black;
     }
 
-    &-contact {
-        width: 2.7rem;
+    &:hover {
+        .side-menu-text {
+            display: inline-block;
+            width: 10rem;
+            opacity: 1;
+        }
     }
 }
