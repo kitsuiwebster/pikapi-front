@@ -1,0 +1,28 @@
+
+.side-menu {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    align-items: center;
+    left: 0;
+
+    &-heart,
+    &-about,
+    &-contact {
+        height: auto;
+        margin-left: 1.05rem;
+        margin-bottom: 0.7rem;
+    }
+
+    &-heart {
+        width: 3rem;
+    }
+
+    &-about {
+        width: 2.7rem;
+    }
+
+    &-contact {
+        width: 2.7rem;
+    }
+}

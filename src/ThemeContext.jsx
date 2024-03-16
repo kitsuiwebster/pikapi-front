@@ -1,6 +1,8 @@
+// At the top of your ThemeContext.jsx file
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
-const ThemeContext = createContext();
+// Modifying this line to include a meaningful default value
+const ThemeContext = createContext({ theme: 'light', toggleTheme: () => {} });
 
 export const useTheme = () => useContext(ThemeContext);
 
