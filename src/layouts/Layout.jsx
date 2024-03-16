@@ -2,6 +2,7 @@ import '../assets/scss/layouts/Layout.scss';
 import { useTheme } from '../ThemeContext';
 import pikapiLogo from '../assets/images/logo.png';
 import SideMenu from '../components/SideMenu';
+import { FaInstagram } from 'react-icons/fa'; 
 
 
 function Layout({ children }) {
@@ -27,9 +28,10 @@ function Layout({ children }) {
 
 
                 <footer className="layout-footer">
-                    <nav className="layout-footer-links">
-                    </nav>
                     <p className='layout-footer-text'>© Copyright PikaPi All Rights Reserved</p>
+                    <a className='layout-footer-container' href="https://www.instagram.com/ai.pikachu/" target="_blank" rel="noopener noreferrer">
+                        <FaInstagram className='layout-footer-ig' />
+                    </a>
                 </footer>
             </div>
         </>

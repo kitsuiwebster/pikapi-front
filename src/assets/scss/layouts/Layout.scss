@@ -72,8 +72,18 @@
         color: black;
         background-color: white;
         position: relative;
-        flex-direction: column;
         z-index: 3;
+
+        &-ig {
+            margin-left: 1rem;
+            color: black;
+        }
+
+        &-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
         &-text {
             font-size: 15px;
