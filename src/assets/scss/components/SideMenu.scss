@@ -3,13 +3,14 @@
     flex-direction: column;
     position: fixed;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     left: 0;
     transition: width 0.3s ease;
     width: 4rem;
     padding: 0 0.8rem;
     overflow: hidden;
     background-color: white;
+    height: 100%;
 
     .dark & {
         background-color: black;
@@ -49,12 +50,16 @@
         transition: opacity 0.3s ease;
         text-align: left;
         color: black;
+
+        .dark & {
+            color: white;
+        }
     }
 
     &:hover {
         .side-menu-text {
             display: inline-block;
-            width: 10rem;
+            width: 5rem;
             opacity: 1;
         }
     }
