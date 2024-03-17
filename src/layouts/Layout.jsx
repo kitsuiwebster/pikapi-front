@@ -28,7 +28,7 @@ function Layout({ children }) {
 
 
                 <footer className="layout-footer">
-                    <p className='layout-footer-text'>© Copyright PikaPi All Rights Reserved</p>
+                    <p className='layout-footer-text'>© Copyright Pikapi All Rights Reserved</p>
                     <a className='layout-footer-container' href="https://www.instagram.com/ai.pikachu/" target="_blank" rel="noopener noreferrer">
                         <FaInstagram className='layout-footer-ig' />
                     </a>
