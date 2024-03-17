@@ -1,0 +1,23 @@
+#contact,
+#about,
+#account,
+#favourites,
+#loading,
+#notfound,
+#pikadex,
+#underconstrauction {
+    max-width: 1400px;
+    margin-inline: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.color-green {
+    color: #4CAF50;
+    text-align: center;
+}
+
+.color-red {
+    color: #f44336;
+    text-align: center;
+}
