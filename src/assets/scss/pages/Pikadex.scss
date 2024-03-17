@@ -1,0 +1,42 @@
+#pikadex {
+    
+
+    .pikadex {
+
+        background-color: #fffbea;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 0 4rem;
+        padding: 3rem 5rem 5rem 5rem;
+
+        &-title {
+            color: black;
+            text-transform: uppercase;
+        }
+
+        &-image {
+            width: 200px;
+            height: 200px;
+            margin: 20px 0;
+        }
+
+        &-text {
+            color: #343a40;
+            line-height: 1.5;
+        }
+
+        &-abilities {
+            list-style: none;
+            padding: 0;
+
+            li {
+                color: #343a40;
+                margin-bottom: 10px;
+                &:before {
+                    content: '•';
+                    margin-right: 5px;
+                }
+            }
+        }
+    }
+}
