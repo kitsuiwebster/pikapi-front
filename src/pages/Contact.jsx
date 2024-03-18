@@ -9,7 +9,6 @@ function Contact() {
 
     useEffect(() => {
         emailjs.init(process.env.REACT_APP_EMAILJS_USER_ID);
-        console.log(process.env.REACT_APP_EMAILJS_USER_ID)
     }, []);
 
     const sendEmail = (e) => {
