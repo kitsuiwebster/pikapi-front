@@ -1,37 +1,36 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../AuthContext'; // Ensure this is the correct path
 
 const Login = () => {
-  const [identifier, setIdentifier] = useState(''); // Renamed from email to identifier
+  // State hooks
+  const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const history = useNavigate(); // Used for redirection after successful login
+  const history = useNavigate();
+
+  // Destructure setIsAuthenticated from useAuth
+  const { setIsAuthenticated } = useAuth(); // Use useAuth here
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setError(''); // Clear any previous error messages
+    // Try-catch block for login attempt
     try {
       const response = await axios.post('http://localhost:4001/user/login', {
-        usernameOrEmail: identifier, // Send the identifier which could be username or email
+        usernameOrEmail: identifier,
         password,
       });
       if (response.data.jwtToken) {
-        localStorage.setItem('token', response.data.jwtToken); // Store the token
-        history('/'); 
-        // Optionally show a success message or handle successful login state
+        localStorage.setItem('token', response.data.jwtToken); // Store the JWT token
+        setIsAuthenticated(true); // Update authentication state
+        history('/'); // Redirect to home or desired route
       } else {
-        // Handle the case where response is successful, but jwtToken is not provided
         setError('Invalid username/email or password. Please try again.');
       }
     } catch (err) {
-      if (err.response) {
-        // If the server responded with a status code outside the 2xx range
-        setError(err.response.data || 'Invalid username/email or password. Please try again.');
-      } else {
-        // No response from the server or another error occurred
-        setError('An error occurred. Please try again later.');
-      }
+      // Error handling logic
+      setError(err.response?.data || 'An error occurred. Please try again later.');
     }
   };
 
@@ -40,7 +39,7 @@ const Login = () => {
       <label>
         Username/Email:
         <input
-          type="text" // Changed type to text to accept both username and email
+          type="text"
           value={identifier}
           onChange={(e) => setIdentifier(e.target.value)}
         />

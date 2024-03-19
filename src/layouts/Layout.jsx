@@ -3,11 +3,14 @@ import { useTheme } from '../ThemeContext';
 import pikapiLogo from '../assets/images/logo.png';
 import SideMenu from '../components/SideMenu';
 import { FaInstagram } from 'react-icons/fa'; 
+import { useAuth } from '../AuthContext';
+import { Link } from 'react-router-dom';
 
 
 function Layout({ children }) {
 
     const { theme, toggleTheme } = useTheme();
+    const { isAuthenticated } = useAuth();
 
     return (
         <>
@@ -17,6 +20,9 @@ function Layout({ children }) {
                     <a href="/">
                         <img src={pikapiLogo} alt="PikaPi Pikachu" className='layout-header-logo' />
                     </a>
+                    {!isAuthenticated && (
+                        <Link to="/login" className="login-button">Login</Link> // Use Link to prevent page reload
+                    )}
                     <button onClick={toggleTheme} aria-label="Toggle theme" className={`layout-header-toggle-theme ${theme}`}>
                     </button>
                 </header>
