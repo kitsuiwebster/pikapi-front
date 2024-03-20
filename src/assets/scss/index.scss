@@ -5,7 +5,9 @@
 #loading,
 #notfound,
 #pikadex,
-#underconstrauction {
+#underconstrauction,
+#needtologin,
+#browse {
     max-width: 1400px;
     margin-inline: auto;
     display: flex;
@@ -20,4 +22,68 @@
 .color-red {
     color: #f44336;
     text-align: center;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: black;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+
+    .dark & {
+        color: white;
+    }
+}
+
+.button {
+    background-color: white;
+    width: 10rem;
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 0.4rem 1rem;
+    border: 2px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    &:hover {
+        background-color: black;
+        color: white;
+    }
+
+    .dark & {
+        border: 2px solid white;
+        color: white;
+        background-color: black;
+
+        &:hover {
+            background-color: white;
+            color: black;
+        }
+    }
+}
+
+.input {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 17rem;
+    margin-top: 1rem;
+    box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.1);
+    height: 2rem;
+    font-size: 1.3rem;
+
+    &:focus {
+        outline: none;
+        border-color: black;
+        box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.2), 0px 0px 5px rgba(0, 0, 0, 0.1);
+    }
 }
