@@ -1,0 +1,28 @@
+.loginpage {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    &-link {
+        text-decoration: none;
+        color: black;
+        margin-left: 0.5rem;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &-register {
+        margin-top: 2rem;
+    }
+
+    .dark & {
+        color: white;
+
+        &-link {
+            color: white;
+        }
+    }
+}
