@@ -13,9 +13,12 @@ const isAuthenticated = () => {
   return !!token; // Simplified check just for the presence of a token
 };
 
+// In auth.js
 const logout = () => {
   localStorage.removeItem('token');
+  localStorage.removeItem('username'); // Clear the username
   // Any additional logout logic can go here
 };
+
 
 export { isAuthenticated, logout };

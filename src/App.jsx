@@ -18,6 +18,9 @@ import { Provider as AlertProvider } from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic';
 import RegisterPage from './pages/RegisterPage';
 import { AuthProvider } from './AuthContext';
+import NeedToLoginPage from './pages/NeedToLoginPage';
+import Browse from './pages/Browse';
+import { FavouritesProvider } from './FavouritesContext';
 
 const options = {
   timeout: 3000,
@@ -28,34 +31,49 @@ const App = () => {
   return (
     <Router>
       <AuthProvider>
-        <ThemeProvider>
-          <AlertProvider template={AlertTemplate} {...options}>
-            <Routes>
-              <Route path="/" element={<Layout><AppWrapper><Home /></AppWrapper></Layout>} />
-              <Route path="/about" element={<Layout><AppWrapper><About /></AppWrapper></Layout>} />
-              <Route path="/broken" element={<Layout><AppWrapper><UnderConstruction /></AppWrapper></Layout>} />
-              <Route path="/pikadex" element={<Layout><AppWrapper><Pikadex /></AppWrapper></Layout>} />
-              <Route path="/contact" element={<Layout><AppWrapper><Contact /></AppWrapper></Layout>} />
-              <Route path="/favourites" element={<Layout><AppWrapper><Favourites /></AppWrapper></Layout>} />
-              <Route path="/login" element={<Layout><AppWrapper><LoginPage /></AppWrapper></Layout>} />
-              <Route path="/register" element={<Layout><AppWrapper><RegisterPage /></AppWrapper></Layout>} />
-              <Route path="/logout" element={<Layout><AppWrapper><Logout /></AppWrapper></Layout>} />
-              <Route 
-                path="/account" 
-                element={
-                  <PrivateRoute>
-                    <Layout>
-                      <AppWrapper>
-                        <Account />
-                      </AppWrapper>
-                    </Layout>
-                  </PrivateRoute>
-                } 
-              />
-              <Route path="/*" element={<Layout><AppWrapper><NotFound /></AppWrapper></Layout>} />
-            </Routes>
-          </AlertProvider>
-        </ThemeProvider>
+        <FavouritesProvider>
+          <ThemeProvider>
+            <AlertProvider template={AlertTemplate} {...options}>
+              <Routes>
+                <Route path="/" element={<Layout><AppWrapper><Home /></AppWrapper></Layout>} />
+                <Route path="/about" element={<Layout><AppWrapper><About /></AppWrapper></Layout>} />
+                <Route path="/broken" element={<Layout><AppWrapper><UnderConstruction /></AppWrapper></Layout>} />
+                <Route path="/pikadex" element={<Layout><AppWrapper><Pikadex /></AppWrapper></Layout>} />
+                <Route path="/contact" element={<Layout><AppWrapper><Contact /></AppWrapper></Layout>} />
+                <Route path="/login" element={<Layout><AppWrapper><LoginPage /></AppWrapper></Layout>} />
+                <Route path="/need-login" element={<Layout><AppWrapper><NeedToLoginPage /></AppWrapper></Layout>} />
+                <Route path="/register" element={<Layout><AppWrapper><RegisterPage /></AppWrapper></Layout>} />
+                <Route path="/logout" element={<Layout><AppWrapper><Logout /></AppWrapper></Layout>} />
+                <Route path="/browse" element={<Layout><AppWrapper><Browse /></AppWrapper></Layout>} />
+                <Route 
+                  path="/account" 
+                  element={
+                    <PrivateRoute>
+                      <Layout>
+                        <AppWrapper>
+                          <Account />
+                        </AppWrapper>
+                      </Layout>
+                    </PrivateRoute>
+                  } 
+                />
+                <Route 
+                  path="/favourites" 
+                  element={
+                    <PrivateRoute>
+                      <Layout>
+                        <AppWrapper>
+                          <Favourites />
+                        </AppWrapper>
+                      </Layout>
+                    </PrivateRoute>
+                  } 
+                />
+                <Route path="/*" element={<Layout><AppWrapper><NotFound /></AppWrapper></Layout>} />
+              </Routes>
+            </AlertProvider>
+          </ThemeProvider>
+        </FavouritesProvider>
       </AuthProvider>
     </Router>
   );

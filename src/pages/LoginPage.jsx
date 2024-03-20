@@ -9,9 +9,9 @@ const LoginPage = () => {
         <>
             <section id="loginpage">
                 <div className='loginpage'>
-                    <h1>Login to Pikapi !</h1>
+                    <h1 className='title'>Log in to Pikapi</h1>
                     <Login />
-                    <p>Don't have an account? <Link to="/register">Register here</Link></p>
+                    <p className='loginpage-register'>Don't have an account?<Link className='loginpage-link' to="/register">Register here</Link></p>
                 </div>
             </section>
         </>
