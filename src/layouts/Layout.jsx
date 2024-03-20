@@ -11,18 +11,22 @@ function Layout({ children }) {
 
     const { theme, toggleTheme } = useTheme();
     const { isAuthenticated } = useAuth();
+    const username = localStorage.getItem('username');
 
     return (
         <>
-            
             <div className={`layout ${theme}`}>
                 <header className="layout-header">
-                    <a href="/">
-                        <img src={pikapiLogo} alt="PikaPi Pikachu" className='layout-header-logo' />
-                    </a>
-                    {!isAuthenticated && (
-                        <Link to="/login" className="login-button">Login</Link> // Use Link to prevent page reload
-                    )}
+                    <div className='layout-header-container'>
+                        <a href="/">
+                            <img src={pikapiLogo} alt="PikaPi Pikachu" className='layout-header-logo' />
+                        </a>
+                        {isAuthenticated ? (
+                            <span className="layout-header-login-text">Connected as {username}</span>
+                        ) : (
+                            <Link to="/login" className="layout-header-login-button">Log in</Link>
+                        )}
+                    </div>
                     <button onClick={toggleTheme} aria-label="Toggle theme" className={`layout-header-toggle-theme ${theme}`}>
                     </button>
                 </header>
@@ -31,7 +35,6 @@ function Layout({ children }) {
                     <SideMenu />
                     {children}
                 </main>
-
 
                 <footer className="layout-footer">
                     <p className='layout-footer-text'>© Copyright Pikapi All Rights Reserved</p>
