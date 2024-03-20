@@ -2,11 +2,9 @@
     
 
     .pikadex {
-
-        background-color: #fffbea;
         padding: 20px;
         border-radius: 10px;
-        margin: 0 4rem;
+        margin: 1rem 4rem;
         padding: 3rem 5rem 5rem 5rem;
 
         &-title {
@@ -35,6 +33,26 @@
                 &:before {
                     content: '•';
                     margin-right: 5px;
+                }
+            }
+        }
+    }
+
+    .dark & {
+        .pikadex {
+            color: white;
+
+            &-title {
+                color: white;
+            }
+
+            &-text {
+                color: rgb(233, 233, 233);
+            }
+
+            &-abilities {
+                li {
+                    color: white;
                 }
             }
         }
