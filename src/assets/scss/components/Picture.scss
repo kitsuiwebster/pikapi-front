@@ -1,0 +1,41 @@
+.picture {
+    position: relative;
+    display: inline-block;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.3s ease;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+
+    &-img {
+        width: 15rem;
+        margin: 0.5rem;
+        border-radius: 10px;
+    }
+
+    &-button {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background-color: white;
+        border-radius: 5px;
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+        width: 2rem;
+        height: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .dark & {
+            background-color: black;
+        }
+    }
+
+    &-heart {
+        width: 1.5rem;
+    }
+}
