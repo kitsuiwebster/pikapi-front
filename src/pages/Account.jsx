@@ -7,7 +7,7 @@ function Account() {
         <>
             <div id="account">
                 <div className='account'>
-                    <h1>Your Account</h1>
+                    <h1 className='title'>Your Account</h1>
                 </div>
             </div>
         </>

@@ -7,7 +7,7 @@ function About() {
         <>
             <div id="about">
                 <div className='about'>
-                    <p>About</p>
+                    <h1 className='title'>About Pikapi</h1>
                 </div>
             </div>
         </>

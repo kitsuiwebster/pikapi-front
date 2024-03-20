@@ -47,16 +47,16 @@ function Contact() {
         <>
             <div id="contact">
                 <div className='contact'>
-                    <h1 className='contact-title'>Contact Pikapi</h1>
+                    <h1 className='title'>Contact Pikapi</h1>
                     <div className='contact-form'>
                         <form className='contact-form-form' ref={form} onSubmit={sendEmail}>
-                            <div className='contact-form-label'>Name</div>
-                            <input type="text" name="user_name" />
-                            <div className='contact-form-label'>Email</div>
-                            <input type="email" name="user_email" />
-                            <div className='contact-form-label'>Message</div>
+                            <div className='contact-form-label'>Name *</div>
+                            <input className='input' name="user_name" />
+                            <div className='contact-form-label'>Email *</div>
+                            <input className='input' name="user_email" />
+                            <div className='contact-form-label'>Message *</div>
                             <textarea className='contact-form-textarea' name="message" />
-                            <input className='contact-form-button' type="submit" value="SEND" />
+                            <input className='button' type="submit" value="SEND" />
                         </form>
                         {contactMessage && <p className={contactMessage === 'Your message has been sent 😋' ? 'color-green' : 'color-red'}>{contactMessage}</p>}
                     </div>
