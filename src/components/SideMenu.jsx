@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useTheme } from '../ThemeContext';
 import '../assets/scss/components/SideMenu.scss';
 import { useAuth } from '../AuthContext';
-import { logout as clearAuthToken } from '../js/auth'
+import { logout as clearAuthToken } from '../js/auth';
 
 // icons
 import lightHeart from '../assets/images/light-heart.png';
@@ -16,6 +16,10 @@ import lightPikadex from '../assets/images/light-pikadex.png';
 import darkPikadex from '../assets/images/dark-pikadex.png';
 import lightUser from '../assets/images/light-user.png'; 
 import darkUser from '../assets/images/dark-user.png';
+import lightLogout from '../assets/images/light-logout.png';
+import darkLogout from '../assets/images/dark-logout.png';
+import lightBrowse from '../assets/images/light-browse.png';
+import darkBrowse from '../assets/images/dark-browse.png';
 
 function SideMenu() {
     const { theme } = useTheme();
@@ -23,12 +27,18 @@ function SideMenu() {
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        clearAuthToken(); // Clears the JWT token from localStorage
-        setIsAuthenticated(false); // Updates the authentication state
-        navigate('/login'); // Redirects to the login page
+        clearAuthToken();  
+        setIsAuthenticated(false); 
+        navigate('/login');  
     };
     return (
         <nav className="side-menu">
+            <Link className='side-menu-link' to="/browse">
+                <div className="side-menu-item">
+                    <img loading="lazy" className='side-menu-icon' src={theme === 'dark' ? lightBrowse : darkBrowse} alt='Browse Pictures' />
+                    <span className="side-menu-text">Browse Pictures</span>
+                </div>
+            </Link>
             <Link className='side-menu-link' to="/favourites">
                 <div className="side-menu-item">
                     <img loading="lazy" className='side-menu-icon' src={theme === 'dark' ? lightHeart : darkHeart} alt='Favourite Pictures' />
@@ -61,9 +71,12 @@ function SideMenu() {
             </Link>
 
             {isAuthenticated && (
-                <div className="side-menu-item" onClick={handleLogout}>
-                    <span className="side-menu-text">Logout</span>
-                </div>
+                <Link className='side-menu-link' to="#" onClick={handleLogout}>
+                    <div className="side-menu-item">
+                        <img loading="lazy" className='side-menu-icon' src={theme === 'dark' ? lightLogout : darkLogout} alt='Logout' />
+                        <span className="side-menu-text">Logout</span>
+                    </div>
+                </Link>
             )}
         </nav>
     );
