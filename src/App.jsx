@@ -15,7 +15,7 @@ import LoginPage from './pages/LoginPage';
 import PrivateRoute from './components/PrivateRoute';
 import Logout from './components/Logout';
 import { Provider as AlertProvider } from 'react-alert';
-import AlertTemplate from 'react-alert-template-basic';
+import CustomAlertTemplate from './components/CustomAlertTemplate';
 import RegisterPage from './pages/RegisterPage';
 import { AuthProvider } from './AuthContext';
 import NeedToLoginPage from './pages/NeedToLoginPage';
@@ -23,7 +23,7 @@ import Browse from './pages/Browse';
 import { FavouritesProvider } from './FavouritesContext';
 
 const options = {
-  timeout: 3000,
+  timeout: 8000,
   position: 'top center',
 };
 
@@ -33,7 +33,7 @@ const App = () => {
       <AuthProvider>
         <FavouritesProvider>
           <ThemeProvider>
-            <AlertProvider template={AlertTemplate} {...options}>
+            <AlertProvider template={CustomAlertTemplate} {...options}>
               <Routes>
                 <Route path="/" element={<Layout><AppWrapper><Home /></AppWrapper></Layout>} />
                 <Route path="/about" element={<Layout><AppWrapper><About /></AppWrapper></Layout>} />

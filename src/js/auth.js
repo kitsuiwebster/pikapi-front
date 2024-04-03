@@ -1,11 +1,4 @@
-// Add a method to parse the JWT token
-// const parseJwt = (token) => {
-//   try {
-//     return JSON.parse(atob(token.split('.')[1]));
-//   } catch (e) {
-//     return null;
-//   }
-// };
+
 
 // Update the isAuthenticated function to check for token expiration
 const isAuthenticated = () => {

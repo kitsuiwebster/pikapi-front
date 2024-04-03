@@ -15,7 +15,8 @@
         border-radius: 10px;
     }
 
-    &-button {
+    &-like-button,
+    &-download-button {
         position: absolute;
         top: 15px;
         right: 15px;
@@ -30,12 +31,37 @@
         align-items: center;
         justify-content: center;
 
+        
+
         .dark & {
             background-color: black;
         }
     }
 
+    &-download-button {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    &-like-button {
+        width: 2rem;
+        height: 2rem;
+    }
+
     &-heart {
         width: 1.5rem;
+        transition: 0.3s ease;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+
+    &-download {
+        transition: 0.3s ease;
+
+        &:hover {
+            transform: scale(1.2);
+        }
     }
 }

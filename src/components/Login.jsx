@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../AuthContext';
 import '../assets/scss/components/Login.scss';
+import { jwtDecode } from 'jwt-decode';
+
 
 const Login = () => {
     // State hooks
@@ -12,27 +14,32 @@ const Login = () => {
     const history = useNavigate();
 
     // Destructure setIsAuthenticated from useAuth
-    const { setIsAuthenticated } = useAuth(); // Use useAuth here
+    const { setIsAuthenticated, setToken } = useAuth(); // Use useAuth here
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        // Try-catch block for login attempt
         try {
-        const response = await axios.post('http://localhost:4001/user/login', {
-            usernameOrEmail: identifier,
-            password,
-        });
-        if (response.data.jwtToken) {
-            localStorage.setItem('token', response.data.jwtToken); // Store the JWT token
-            localStorage.setItem('username', identifier); // Store the identifier used to log in
-            setIsAuthenticated(true); // Update authentication state
-            history('/browse'); // Redirect to home or desired route
-        } else {
-            setError('Invalid username/email or password. Please try again.');
-        }
+            const response = await axios.post('http://localhost:4001/user/login', {
+                usernameOrEmail: identifier,
+                password,
+            });
+            if (response.data.jwtToken) {
+                localStorage.setItem('token', response.data.jwtToken); // Store the JWT token
+
+                // Decode the JWT token to extract the user ID (sub claim)
+                const decodedToken = jwtDecode(response.data.jwtToken);
+                localStorage.setItem('userId', decodedToken.sub); // Store the user's ID from the decoded token
+
+                console.log('Decoded token sub:', decodedToken.sub); // Log the decoded token to the console
+                
+                setIsAuthenticated(true); // Update authentication state
+                setToken(response.data.jwtToken); // Update the token in context
+                history('/browse'); // Redirect to the browse page
+            } else {
+                setError('Invalid username/email or password. Please try again.');
+            }
         } catch (err) {
-        // Error handling logic
-        setError(err.response?.data || 'An error occurred. Please try again later.');
+            setError(err.response?.data || 'An error occurred. Please try again later.');
         }
     };
 
@@ -63,3 +70,5 @@ const Login = () => {
 };
 
 export default Login;
+
+//TODO: Display favourites 
