@@ -1,12 +1,11 @@
 .custom-alert {
-    background-color: #ff6347;
-    color: #ffffff;
     padding: 15px 30px;
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    color: #ffffff;
 
     &-text {
         font-size: 15px;
@@ -21,4 +20,11 @@
         cursor: pointer;
     }
 }
-  
+
+.custom-alert-success {
+    background-color: #32cd32; 
+}
+
+.custom-alert-error {
+    background-color: #f44336; 
+}

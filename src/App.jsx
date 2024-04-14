@@ -14,7 +14,7 @@ import Account from './pages/Account';
 import LoginPage from './pages/LoginPage';
 import PrivateRoute from './components/PrivateRoute';
 import Logout from './components/Logout';
-import { Provider as AlertProvider } from 'react-alert';
+import { transitions, positions, Provider as AlertProvider } from 'react-alert';
 import CustomAlertTemplate from './components/CustomAlertTemplate';
 import RegisterPage from './pages/RegisterPage';
 import { AuthProvider } from './AuthContext';
@@ -23,8 +23,10 @@ import Browse from './pages/Browse';
 import { FavouritesProvider } from './FavouritesContext';
 
 const options = {
-  timeout: 8000,
-  position: 'top center',
+  position: positions.TOP_CENTER,
+  timeout: 5000,
+  offset: '30px',
+  transition: transitions.SCALE
 };
 
 const App = () => {
