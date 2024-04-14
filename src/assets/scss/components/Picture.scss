@@ -19,45 +19,35 @@
     &-download-button {
         position: absolute;
         top: 15px;
-        right: 15px;
         background-color: white;
         border-radius: 5px;
         border: none;
         padding: 5px;
         cursor: pointer;
-        width: 2rem;
-        height: 2rem;
         display: flex;
         align-items: center;
         justify-content: center;
-
-        
 
         .dark & {
             background-color: black;
         }
     }
 
-    &-download-button {
-        width: 1.5rem;
-        height: 1.5rem;
-    }
-
     &-like-button {
+        right: 15px;
         width: 2rem;
         height: 2rem;
     }
 
-    &-heart {
-        width: 1.5rem;
-        transition: 0.3s ease;
-
-        &:hover {
-            transform: scale(1.2);
-        }
+    &-download-button {
+        left: 15px;
+        width: 2rem;
+        height: 2rem;
     }
 
+    &-heart,
     &-download {
+        width: 1.5rem;
         transition: 0.3s ease;
 
         &:hover {

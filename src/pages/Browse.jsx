@@ -4,81 +4,82 @@ import Picture from '../components/Picture';
 import { useAlert } from 'react-alert';
 import { useAuth } from '../AuthContext';
 import '../assets/scss/pages/Browse.scss';
-import '../assets/scss/index.scss';
 
 function Browse() {
     const alert = useAlert();
-    const [isAlertOpen, setIsAlertOpen] = useState(false);
+    const { isAuthenticated, token } = useAuth();
     const [pictures, setPictures] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
-    const { isAuthenticated, user, token } = useAuth(); // Assuming you manage token here
-    const backendUrl = 'http://localhost:4001'; 
+    const backendUrl = 'http://localhost:4001';
 
     useEffect(() => {
+        const fetchUserFavourites = async () => {
+            const userId = localStorage.getItem('userId');
+            if (token && userId) {
+                try {
+                    const response = await axios.get(`${backendUrl}/user/${userId}`, {
+                        headers: { 'Authorization': `Bearer ${token}` }
+                    });
+                    return response.data.user.favorites || [];
+                } catch (error) {
+                    console.error('Failed to fetch user favorites:', error);
+                    return [];
+                }
+            }
+            return [];
+        };
+
         const fetchPictures = async () => {
             try {
+                const userFavourites = await fetchUserFavourites();
                 const response = await axios.get(`${backendUrl}/pictures`);
                 const updatedPictures = response.data.map(picture => ({
                     ...picture,
                     src: `${backendUrl}${picture.src.startsWith('/') ? '' : '/'}${picture.src.replace('./', '')}`,
-                    // Assuming the backend sends a property that tells you if the picture is favorite
-                    // You might need to adjust this depending on your backend response
-                    isFavourite: picture.isFavourite || false,
+                    isFavourite: userFavourites.includes(picture._id),
                 }));
                 setPictures(updatedPictures);
-                console.log(updatedPictures); // Add this line to check the structure of the fetched pictures
             } catch (error) {
                 console.error('Failed to fetch pictures:', error);
             }
         };
-    
+
         fetchPictures();
-    }, []);
-    
+    }, [isAuthenticated, token]);
 
     const toggleFavourite = async (pictureId, isCurrentlyFavourite) => {
         if (!isAuthenticated) {
-            setIsAlertOpen(true);
-            alert.show('Please connect to add pictures to favourites.', {
-                timeout: 5000,
-                onOpen: () => {
-                    setIsAlertOpen(true);
-                },
-            });
+            alert.show('Please connect to add pictures to favourites.', { timeout: 5000, type: 'error' });
             return;
         }
 
-        console.log("Token being used for request:", token);
-    
-        // Define the configuration for the axios request, including the authorization headers
         const config = {
             headers: {
-                'Authorization': `Bearer ${token}`, // Correctly formatted Authorization header
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
             },
         };
-    
-        // Define the endpoint based on whether we're adding or removing a favorite
+
         const endpoint = `${backendUrl}/user/favorites/${isCurrentlyFavourite ? 'remove' : 'add'}`;
-    
+
         try {
-            // Make a single post request to update the favorite status
             await axios.post(endpoint, { pictureId }, config);
-    
-            // Optimistically update the UI to reflect the new favorite status
             setPictures(pictures.map(pic => pic._id === pictureId ? {
                 ...pic,
                 isFavourite: !isCurrentlyFavourite,
             } : pic));
+            alert.show(`Favorite ${isCurrentlyFavourite ? 'removed' : 'added'} successfully.`, {
+                timeout: 3000,
+                type: 'success'
+            });
         } catch (error) {
             console.error('Failed to toggle favourite:', error);
-            alert.show('Failed to update favourite status.', {
+            alert.show(`Failed to ${isCurrentlyFavourite ? 'remove' : 'add'} favorite.`, {
                 timeout: 5000,
+                type: 'error'
             });
         }
     };
-    
-    
-    
 
     return (
         <div id="browse">
@@ -92,7 +93,7 @@ function Browse() {
                     value={searchTerm}
                 />
                 <div className='browse-container'>
-                    {pictures.filter(picture => 
+                    {pictures.filter(picture =>
                         picture.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
                     ).map((picture, index) => (
                         <Picture
@@ -102,7 +103,7 @@ function Browse() {
                             tags={picture.tags}
                             isFavourite={picture.isFavourite}
                             onFavourite={() => toggleFavourite(picture._id, picture.isFavourite)}
-                            isAlertOpen={isAlertOpen} 
+                            showDownloadButton={false}
                         />
                     ))}
                 </div>

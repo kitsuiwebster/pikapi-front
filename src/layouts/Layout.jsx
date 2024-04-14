@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 
 
 function Layout({ children }) {
-
     const { theme, toggleTheme } = useTheme();
     const { isAuthenticated } = useAuth();
     const username = localStorage.getItem('username');
@@ -48,3 +47,4 @@ function Layout({ children }) {
 }
 
 export default Layout;
+

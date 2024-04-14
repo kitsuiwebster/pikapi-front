@@ -9,4 +9,19 @@
         flex-wrap: wrap;
         justify-content: center;
     }
+
+    &-title {
+        color: black;
+    }
+
+    &-nofav {
+        text-align: center;
+        font-size: 1.5rem;
+        margin-top: 2rem;
+        font-weight: 500;
+    }
+
+    .dark & {
+        color: white;
+    }
 }

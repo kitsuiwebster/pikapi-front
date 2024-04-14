@@ -1,68 +1,62 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import axios from 'axios';
 import { useAuth } from './AuthContext';
 
 const FavouritesContext = createContext();
 
 export const FavouritesProvider = ({ children }) => {
-    const { isAuthenticated } = useAuth();
-    const [favourites, setFavourites] = useState(() => {
-        // Fetch the initial state of favourites from localStorage for the current user
-        const userIdentifier = localStorage.getItem('username');
-        const savedFavourites = localStorage.getItem('favourites');
-        const parsedFavourites = savedFavourites ? JSON.parse(savedFavourites) : {};
-        return parsedFavourites[userIdentifier] || [];
-    });
+    const { isAuthenticated, token } = useAuth();
+    const [favourites, setFavourites] = useState([]);
 
     useEffect(() => {
-        if (!isAuthenticated || !localStorage.getItem('username')) return;
+        const fetchUserFavourites = async () => {
+            const userId = localStorage.getItem('userId'); // Get user ID from local storage
+            console.log(userId);
+            if (token && userId) {
+                try {
+                    const response = await axios.get(`http://localhost:4001/user/${userId}`, {
+                        headers: { 'Authorization': `Bearer ${token}` }
+                    });
+                    setFavourites(response.data.user.favorites || []);
+                } catch (error) {
+                    console.error('Failed to fetch user favorites:', error);
+                }
+            }
+        };
 
-        // Save the current user's favourites back to localStorage on changes
-        const userIdentifier = localStorage.getItem('username');
-        const allFavourites = JSON.parse(localStorage.getItem('favourites')) || {};
-        allFavourites[userIdentifier] = favourites;
-        localStorage.setItem('favourites', JSON.stringify(allFavourites));
-    }, [favourites, isAuthenticated]);
+        if (isAuthenticated) {
+            fetchUserFavourites();
+        }
+    }, [isAuthenticated, token]); // Ensure fetchUserFavourites function uses the latest token and isAuthenticated state
 
-    const addFavourite = (picture) => {
-        const userIdentifier = localStorage.getItem('username');
-        if (!userIdentifier) return;
-
-        // Ensure that we're working with an array for the current user's favourites
-        const currentFavourites = Array.isArray(favourites) ? favourites : [];
-        const isAlreadyFavourite = currentFavourites.some(fav => fav.src === picture.src);
-
-        // Update the favourites accordingly
-        const updatedFavourites = isAlreadyFavourite
-            ? currentFavourites.filter(fav => fav.src !== picture.src) // Remove if already a favourite
-            : [...currentFavourites, picture]; // Add if not already a favourite
-
-        // Save the updated favourites back to localStorage
-        const allFavourites = JSON.parse(localStorage.getItem('favourites')) || {};
-        allFavourites[userIdentifier] = updatedFavourites;
-        localStorage.setItem('favourites', JSON.stringify(allFavourites));
-        setFavourites(updatedFavourites);
+    const addFavourite = async (pictureId) => {
+        try {
+            const response = await axios.post('http://localhost:4001/user/favorites/add', { pictureId }, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (response.data.success) {
+                setFavourites(prev => [...prev, pictureId]);
+            }
+        } catch (error) {
+            console.error('Failed to add favorite:', error);
+        }
     };
 
-    const removeFavourite = (src) => {
-        const userIdentifier = localStorage.getItem('username');
-        const currentFavourites = Array.isArray(favourites) ? favourites : [];
-        const updatedFavourites = currentFavourites.filter(picture => picture.src !== src);
-
-        // Update the localStorage as well
-        const allFavourites = JSON.parse(localStorage.getItem('favourites')) || {};
-        allFavourites[userIdentifier] = updatedFavourites;
-        localStorage.setItem('favourites', JSON.stringify(allFavourites));
-        
-        setFavourites(updatedFavourites);
+    const removeFavourite = async (pictureId) => {
+        try {
+            const response = await axios.post('http://localhost:4001/user/favorites/remove', { pictureId }, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (response.data.success) {
+                setFavourites(prev => prev.filter(fav => fav !== pictureId));
+            }
+        } catch (error) {
+            console.error('Failed to remove favorite:', error);
+        }
     };
 
-    const getUserFavourites = () => {
-        const userIdentifier = localStorage.getItem('username');
-        const savedFavourites = localStorage.getItem('favourites');
-        const allFavourites = savedFavourites ? JSON.parse(savedFavourites) : {};
-        return allFavourites[userIdentifier] || []; // Ensure it's always an array
-    };
-    
+    const getUserFavourites = () => favourites;
+
     return (
         <FavouritesContext.Provider value={{ getUserFavourites, addFavourite, removeFavourite }}>
             {children}

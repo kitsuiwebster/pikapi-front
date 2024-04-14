@@ -15,7 +15,7 @@
 }
 
 .color-green {
-    color: #4CAF50;
+    color: #32cd32;
     text-align: center;
 }
 
@@ -23,6 +23,23 @@
     color: #f44336;
     text-align: center;
 }
+
+.nofav {
+    margin-top: 0;
+
+    .dark & {
+        color: white;
+    }
+}
+
+.img-scale {
+    transition: transform 0.3s ease-in-out;
+}
+
+.img-scale:hover {
+    transform: scale(1.1); 
+}
+  
 
 .title {
     text-align: center;
