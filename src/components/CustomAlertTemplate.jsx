@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import '../assets/scss/components/CustomAlertTemplate.scss';
 
 const CustomAlertTemplate = ({ style, options, message, close }) => {
+  const alertClass = options.type === 'error' ? 'custom-alert-error' : 'custom-alert-success';
+
   return (
-    <div className="custom-alert" style={style}>
+    <div className={`custom-alert ${alertClass}`} style={style}>
       <p className='custom-alert-text'>{message}</p>
       <button className='custom-alert-button' onClick={close}>×</button>
     </div>
