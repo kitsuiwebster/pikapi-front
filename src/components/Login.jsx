@@ -14,7 +14,7 @@ const Login = () => {
     const history = useNavigate();
 
     // Destructure setIsAuthenticated from useAuth
-    const { setIsAuthenticated, setToken } = useAuth(); // Use useAuth here
+    const { setIsAuthenticated, setToken } = useAuth();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -25,13 +25,12 @@ const Login = () => {
             });
             if (response.data.jwtToken) {
                 localStorage.setItem('token', response.data.jwtToken); // Store the JWT token
+                localStorage.setItem('userId', response.data.userId); // Store the user's ID from the login response
 
-                // Decode the JWT token to extract the user ID (sub claim)
+                // Assume username is in the decoded token
                 const decodedToken = jwtDecode(response.data.jwtToken);
-                localStorage.setItem('userId', decodedToken.sub); // Store the user's ID from the decoded token
+                localStorage.setItem('username', decodedToken.username); 
 
-                console.log('Decoded token sub:', decodedToken.sub); // Log the decoded token to the console
-                
                 setIsAuthenticated(true); // Update authentication state
                 setToken(response.data.jwtToken); // Update the token in context
                 history('/browse'); // Redirect to the browse page
@@ -42,6 +41,8 @@ const Login = () => {
             setError(err.response?.data || 'An error occurred. Please try again later.');
         }
     };
+
+    
 
     return (
         <form className='login' onSubmit={handleSubmit}>
