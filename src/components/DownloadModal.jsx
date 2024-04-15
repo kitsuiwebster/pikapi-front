@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import darkCross from '../assets/images/dark-cross.png';
 import '../assets/scss/components/DownloadModal.scss';
 
 function DownloadModal({ onClose, link1k, link4k }) {

@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../assets/scss/pages/Account.scss';
+import { url } from '../index';
 
 function Account() {
     const [user, setUser] = useState(null);
     const token = localStorage.getItem('token'); 
     const userId = localStorage.getItem('userId');
-    const backendUrl = 'http://localhost:4001';
 
     useEffect(() => {
         const fetchUserDetails = async () => {
             try {
-                const response = await axios.get(`${backendUrl}/user/${userId}`, {
+                const response = await axios.get(`${url}/user/${userId}`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 if (response.data.success) {
@@ -34,7 +34,7 @@ function Account() {
     return (
         <div id="account">
             <div className='account'>
-                <h1 className='account-title'>Your Account</h1>
+                <h1 className='title'>Your Account</h1>
                 <div className='account-elements'>
                     <h2 className='account-element'>➜ Username: {user.username}</h2>
                     <h2 className='account-element'>➜ Email: {user.email}</h2>

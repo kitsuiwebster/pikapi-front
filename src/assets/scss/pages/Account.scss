@@ -42,3 +42,22 @@
         color: white;
     }
 }
+
+@media screen and (max-width: 500px) {
+    .account {
+        &-element {
+            max-width: 15rem;
+            font-size: 1rem;
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .account {
+        &-element {
+            max-width: 8rem;
+            padding: 0.5rem;
+            font-size: 0.8rem;
+        }
+    }
+}

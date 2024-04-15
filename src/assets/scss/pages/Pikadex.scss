@@ -1,39 +1,35 @@
-#pikadex {
-    
+.pikadex {
+    padding: 20px;
+    border-radius: 10px;
+    margin: 1rem 4rem;
+    padding: 3rem 5rem 5rem 5rem;
 
-    .pikadex {
-        padding: 20px;
-        border-radius: 10px;
-        margin: 1rem 4rem;
-        padding: 3rem 5rem 5rem 5rem;
+    &-title {
+        color: black;
+        text-transform: uppercase;
+    }
 
-        &-title {
-            color: black;
-            text-transform: uppercase;
-        }
+    &-image {
+        width: 200px;
+        height: 200px;
+        margin: 20px 0;
+    }
 
-        &-image {
-            width: 200px;
-            height: 200px;
-            margin: 20px 0;
-        }
+    &-text {
+        color: #343a40;
+        line-height: 1.5;
+    }
 
-        &-text {
+    &-abilities {
+        list-style: none;
+        padding: 0;
+
+        li {
             color: #343a40;
-            line-height: 1.5;
-        }
-
-        &-abilities {
-            list-style: none;
-            padding: 0;
-
-            li {
-                color: #343a40;
-                margin-bottom: 10px;
-                &:before {
-                    content: '•';
-                    margin-right: 5px;
-                }
+            margin-bottom: 10px;
+            &:before {
+                content: '•';
+                margin-right: 5px;
             }
         }
     }
@@ -41,20 +37,64 @@
     .dark & {
         .pikadex {
             color: white;
-
+    
             &-title {
                 color: white;
             }
-
+    
             &-text {
                 color: rgb(233, 233, 233);
             }
-
+    
             &-abilities {
                 li {
                     color: white;
                 }
             }
+        }
+    }
+}
+
+
+
+@media screen and (max-width: 1100px) {
+    .pikadex {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .pikadex {
+        margin: 1rem 2rem;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .pikadex {
+        margin: 0;
+        &-text {
+            text-align: justify;
+        }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .pikadex {
+        margin-right: 1rem;
+
+        &-section-title {
+            font-size: 1.2rem;
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .pikadex {
+        margin-right: 0.1rem;
+
+        &-image {
+            width: 100px;
+            height: 100px;
         }
     }
 }

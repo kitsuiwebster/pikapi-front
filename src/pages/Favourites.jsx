@@ -5,6 +5,7 @@ import DownloadModal from '../components/DownloadModal'; // Import the modal com
 import { useAuth } from '../AuthContext';
 import '../assets/scss/pages/Favourites.scss';
 import nofav from '../assets/images/nofav.png'; // Make sure the path is correct
+import { url } from '../index';
 
 function Favourites() {
     const { isAuthenticated, token } = useAuth();
@@ -12,7 +13,6 @@ function Favourites() {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedPicture, setSelectedPicture] = useState(null); // State to keep track of selected picture for download
     const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
-    const backendUrl = 'http://localhost:4001';
 
     useEffect(() => {
         const fetchFavourites = async () => {
@@ -20,7 +20,7 @@ function Favourites() {
                 const userId = localStorage.getItem('userId');
                 if (userId) {
                     try {
-                        const userResponse = await axios.get(`${backendUrl}/user/${userId}`, {
+                        const userResponse = await axios.get(`${url}/user/${userId}`, {
                             headers: { Authorization: `Bearer ${token}` },
                         });
                         const favouriteIds = userResponse.data.user.favorites || [];
@@ -28,14 +28,14 @@ function Favourites() {
                         if (favouriteIds.length === 0) {
                             setFavourites([]);
                         } else {
-                            const picturesResponse = await axios.get(`${backendUrl}/pictures`, {
+                            const picturesResponse = await axios.get(`${url}/pictures`, {
                                 headers: { Authorization: `Bearer ${token}` },
                             });
                             const filteredFavourites = picturesResponse.data.filter(picture =>
                                 favouriteIds.includes(picture._id)
                             ).map(picture => ({
                                 ...picture,
-                                src: `${backendUrl}${picture.src}`,
+                                src: `${url}${picture.src}`,
                                 downloadLink1k: picture.link1k,
                                 downloadLink4k: picture.link4k
                             }));
@@ -49,7 +49,7 @@ function Favourites() {
         };
 
         fetchFavourites();
-    }, [isAuthenticated, token, backendUrl]);
+    }, [isAuthenticated, token]);
 
     const removeFavourite = async (pictureId) => {
         if (!isAuthenticated) {
@@ -64,7 +64,7 @@ function Favourites() {
             },
         };
 
-        const endpoint = `${backendUrl}/user/favorites/remove`;
+        const endpoint = `${url}/user/favorites/remove`;
 
         try {
             const response = await axios.post(endpoint, { pictureId }, config);
@@ -97,7 +97,7 @@ function Favourites() {
     return (
         <div id="favourites">
             <div className='favourites'>
-                <h1 className='favourites-title'>Your Favourites</h1>
+                <h1 className='title'>Your Favourites</h1>
                 <input
                     className='input'
                     type="text"

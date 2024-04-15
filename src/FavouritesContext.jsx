@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAuth } from './AuthContext';
+import { url } from './index';
 
 const FavouritesContext = createContext();
 
@@ -14,7 +15,7 @@ export const FavouritesProvider = ({ children }) => {
             console.log(userId);
             if (token && userId) {
                 try {
-                    const response = await axios.get(`http://localhost:4001/user/${userId}`, {
+                    const response = await axios.get(`https://${url}/user/${userId}`, {
                         headers: { 'Authorization': `Bearer ${token}` }
                     });
                     setFavourites(response.data.user.favorites || []);
@@ -31,7 +32,7 @@ export const FavouritesProvider = ({ children }) => {
 
     const addFavourite = async (pictureId) => {
         try {
-            const response = await axios.post('http://localhost:4001/user/favorites/add', { pictureId }, {
+            const response = await axios.post(`https://${url}/user/favorites/add`, { pictureId }, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             if (response.data.success) {
@@ -44,7 +45,7 @@ export const FavouritesProvider = ({ children }) => {
 
     const removeFavourite = async (pictureId) => {
         try {
-            const response = await axios.post('http://localhost:4001/user/favorites/remove', { pictureId }, {
+            const response = await axios.post(`https://${url}/user/favorites/remove`, { pictureId }, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             if (response.data.success) {

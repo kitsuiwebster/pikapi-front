@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../AuthContext';
 import '../assets/scss/components/Login.scss';
 import { jwtDecode } from 'jwt-decode';
+import { url } from '../index';
 
 
 const Login = () => {
@@ -19,7 +20,7 @@ const Login = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post('http://localhost:4001/user/login', {
+            const response = await axios.post(`${url}/user/login`, {
                 usernameOrEmail: identifier,
                 password,
             });

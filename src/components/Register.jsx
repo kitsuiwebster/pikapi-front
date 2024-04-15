@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../assets/scss/components/Register.scss';
+import { url } from '../index';
 
 const Register = () => {
     const [username, setUsername] = useState('');
@@ -14,7 +15,7 @@ const Register = () => {
         event.preventDefault();
         setError(''); // Clear any previous errors
         try {
-            const response = await axios.post('http://localhost:4001/user/register', {
+            const response = await axios.post(`${url}/user/register`, {
                 username,
                 email,
                 password,

@@ -4,20 +4,24 @@ import Picture from '../components/Picture';
 import { useAlert } from 'react-alert';
 import { useAuth } from '../AuthContext';
 import '../assets/scss/pages/Browse.scss';
+import { url } from '../index';
+
+
 
 function Browse() {
     const alert = useAlert();
     const { isAuthenticated, token } = useAuth();
     const [pictures, setPictures] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
-    const backendUrl = 'http://localhost:4001';
+
+    console.log(url);
 
     useEffect(() => {
         const fetchUserFavourites = async () => {
             const userId = localStorage.getItem('userId');
             if (token && userId) {
                 try {
-                    const response = await axios.get(`${backendUrl}/user/${userId}`, {
+                    const response = await axios.get(`${url}/user/${userId}`, {
                         headers: { 'Authorization': `Bearer ${token}` }
                     });
                     return response.data.user.favorites || [];
@@ -32,10 +36,10 @@ function Browse() {
         const fetchPictures = async () => {
             try {
                 const userFavourites = await fetchUserFavourites();
-                const response = await axios.get(`${backendUrl}/pictures`);
+                const response = await axios.get(`${url}/pictures`);
                 const updatedPictures = response.data.map(picture => ({
                     ...picture,
-                    src: `${backendUrl}${picture.src.startsWith('/') ? '' : '/'}${picture.src.replace('./', '')}`,
+                    src: `${url}${picture.src.startsWith('/') ? '' : '/'}${picture.src.replace('./', '')}`,
                     isFavourite: userFavourites.includes(picture._id),
                 }));
                 setPictures(updatedPictures);
@@ -60,7 +64,7 @@ function Browse() {
             },
         };
 
-        const endpoint = `${backendUrl}/user/favorites/${isCurrentlyFavourite ? 'remove' : 'add'}`;
+        const endpoint = `${url}/user/favorites/${isCurrentlyFavourite ? 'remove' : 'add'}`;
 
         try {
             await axios.post(endpoint, { pictureId }, config);
