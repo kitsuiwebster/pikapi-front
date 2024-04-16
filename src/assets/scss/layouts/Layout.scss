@@ -97,7 +97,8 @@
         color: black;
         background-color: white;
         position: relative;
-        z-index: 1001;
+        z-index: 50;
+        height: auto;
 
         &-ig {
             margin-left: 1rem;

@@ -11,7 +11,7 @@
     overflow: hidden;
     background-color: white;
     height: 100%;
-    z-index: 1000;
+    z-index: 100;
 
     .dark & {
         background-color: black;
@@ -80,3 +80,13 @@
     }
 }
 
+@media screen and (max-width: 700px) {
+    .side-menu {
+        &:hover {
+            box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.5);
+            border-right: 0.1px solid black;
+            border-top: 0.1px solid black;
+            border-radius: 0 15px;
+        }
+    }
+}
