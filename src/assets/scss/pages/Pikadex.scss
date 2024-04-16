@@ -3,98 +3,292 @@
     border-radius: 10px;
     margin: 1rem 4rem;
     padding: 3rem 5rem 5rem 5rem;
-
+  
     &-title {
         color: black;
         text-transform: uppercase;
     }
-
+  
     &-image {
         width: 200px;
         height: 200px;
         margin: 20px 0;
     }
-
+  
     &-text {
         color: #343a40;
         line-height: 1.5;
     }
-
+  
     &-abilities {
         list-style: none;
         padding: 0;
-
+    
         li {
             color: #343a40;
             margin-bottom: 10px;
+    
             &:before {
-                content: '•';
                 margin-right: 5px;
             }
         }
     }
+  
+    &-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 2rem;
+    
+        .pikadex-th, .pikadex-td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+  
+        .pikadex-th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        .pikadex-td .pikadex-ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin: 0;
+        }
+  
+        .pikadex-td .pikadex-li {
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    &-abilities-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+    
+        .pikadex-subtitle {
+            margin-bottom: 1rem;
+        }
+    
+        .pikadex-abilities {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 1rem;
+            list-style-type: none;
+            padding: 0;
+        
+            .pikadex-li {
+                background-color: #f2f2f2;
+                border-radius: 5px;
+                padding: 1rem;
+                text-align: center;
+                transition: background-color 0.3s ease;
+        
+                &:hover {
+                background-color: #e6e6e6;
+                }
+            }
+        }
+    
+        .pikadex-signature-move {
+            margin-top: 2rem;
+        
+            .pikadex-comment {
+                font-style: italic;
+            }
+        }
+    
+        .pikadex-learned-moves {
+            margin-top: 2rem;
+        
+            .pikadex-move-list {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 1rem;
+            }
+        
+            .pikadex-move-item {
+                background-color: #f2f2f2;
+                border-radius: 5px;
+                padding: 1rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: background-color 0.3s ease;
+        
+                &:hover {
+                background-color: #e6e6e6;
+                }
+        
+                .pikadex-move-name {
+                font-weight: 500;
+                margin-bottom: 0.5rem;
+                font-size: 1rem;
+                }
+        
+                .pikadex-move-details {
+                font-size: 0.9rem;
+                color: #3b3b3b;
+                text-align: center;
+                }
+            }
+        }
+    }
+
+  
 
     .dark & {
-        .pikadex {
-            color: white;
+        color: white;
     
-            &-title {
+        &-title {
+            color: white;
+        }
+    
+        &-text {
+            color: rgb(233, 233, 233);
+        }
+    
+        &-abilities {
+            .pikadex-li {
                 color: white;
             }
+        }
     
-            &-text {
-                color: rgb(233, 233, 233);
+        &-table {
+            .pikadex-th {
+                background-color: #333;
+                color: #fff;
+            }
+        
+            .pikadex-td {
+                border-bottom-color: #555;
+            }
+        }
+  
+        .pikadex-abilities-container {
+            .pikadex-abilities {
+                .pikadex-li {
+                    background-color: #333;
+                    color: #fff;
+        
+                &:hover {
+                        background-color: #444;
+                    }
+                }
             }
     
-            &-abilities {
-                li {
-                    color: white;
+            .pikadex-learned-moves {
+                .pikadex-move-item {
+                    background-color: #333;
+                    color: #fff;
+
+                    .pikadex-move-details {
+                        color: #ccc;
+                    }
+            
+                    &:hover {
+                        background-color: #444;
+                    }
                 }
             }
         }
     }
 }
 
+  
 
 
+  
 @media screen and (max-width: 1100px) {
-    .pikadex {
+        .pikadex {
         padding: 0;
     }
 }
-
+  
 @media screen and (max-width: 900px) {
-    .pikadex {
+        .pikadex {
         margin: 1rem 2rem;
     }
 }
 
+@media (max-width: 768px) {
+    #pikadex .pikadex {
+        .pikadex-abilities-container {
+            .pikadex-abilities {
+                grid-template-columns: repeat(2, 1fr); 
+            }
+            .pikadex-move-list {
+                grid-template-columns: repeat(2, 1fr); 
+            }
+        }
+    }
+}
+
+
+
+  
 @media screen and (max-width: 700px) {
-    .pikadex {
+        .pikadex {
         margin: 0;
+    
         &-text {
             text-align: justify;
         }
     }
 }
-
+  
 @media screen and (max-width: 550px) {
-    .pikadex {
+        .pikadex {
         margin-right: 1rem;
-
+    
         &-section-title {
             font-size: 1.2rem;
         }
     }
 }
 
-@media screen and (max-width: 400px) {
-    .pikadex {
-        margin-right: 0.1rem;
+@media (max-width: 550px) {
+    .pikadex-table {
+        .pikadex-th, .pikadex-td {
+            padding: 0.5rem;
+            font-size: 0.8rem;
+        }
+    }
+}
 
+@media (max-width: 480px) {
+    #pikadex .pikadex {
+        .pikadex-abilities-container {
+            max-width: 12rem;
+            .pikadex-li {
+                max-width: 10rem;
+            }
+            .pikadex-abilities {
+                grid-template-columns: repeat(1, 1fr); 
+                max-width: 12rem;
+            }
+            .pikadex-move-list {
+                grid-template-columns: repeat(1, 1fr);
+                max-width: 12rem;
+                .pikadex-move-item {
+                    max-width: 15rem;
+                }
+            }
+        }
+    }
+}
+
+  
+@media screen and (max-width: 400px) {
+        .pikadex {
+        margin-right: 0.1rem;
+    
         &-image {
             width: 100px;
             height: 100px;
         }
     }
 }
+
+
