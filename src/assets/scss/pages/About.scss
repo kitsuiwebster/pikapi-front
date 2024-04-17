@@ -1,0 +1,96 @@
+// About.scss
+
+.about-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    
+.about {
+    background-color: #ffffff; 
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 60rem;
+    width: 90%; 
+    text-align: left;
+        
+    &-text {
+        color: black;
+        font-size: 1.2rem; 
+        line-height: 1.6;
+        margin-bottom: 15px;
+        text-align: justify;
+    }
+        
+    &-link {
+        color: red; 
+        text-decoration: none; 
+        
+        &:hover {
+            text-decoration: underline; 
+        }
+    }
+        
+    &-heading {
+        font-size: 1.3rem;
+        text-align: center;
+        margin-top: 30px; 
+    }
+
+    &-image-container {
+        display: flex;
+        justify-content: center;
+
+        .about-image {
+            width: 20rem;
+        }
+    }
+
+    
+
+    .dark & {
+        background-color: black; 
+        
+        &-text {
+            color: white; 
+        }
+
+        &-link {
+            color: #ffe900; 
+            
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+    
+
+@media screen and (max-width: 500px) {
+    .about {
+        padding: 0;
+        &-image-container {
+            .about-image {
+                width: 15rem;
+            }
+        }
+
+        &-text {
+            font-size: 1rem;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .about {
+        &-image-container {
+            .about-image {
+                width: 10rem;
+            }
+        }
+
+        &-text {
+            font-size: 0.7rem;
+        }
+    }
+}
