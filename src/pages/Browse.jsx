@@ -78,7 +78,7 @@ function Browse() {
             });
         } catch (error) {
             console.error('Failed to toggle favourite:', error);
-            alert.show(`Failed to ${isCurrentlyFavourite ? 'remove' : 'add'} favorite.`, {
+            alert.show(`Failed to ${isCurrentlyFavourite ? 'remove' : 'add'} favourite.`, {
                 timeout: 5000,
                 type: 'error'
             });
