@@ -208,97 +208,97 @@ function Pikadex() {
                   <span className='pikadex-move-details'>Electric, Special, - Power, 100% Accuracy, 10 PP</span>
                 </div>
                 <div className='pikadex-move-item'>
-                  <span className='pikadex-move-name'>Discharge</span>
+                  <span className='pikadex-move-name'>⚡ Discharge</span>
                   <span className='pikadex-move-details'>Electric, Special, 80 Power, 100% Accuracy, 15 PP</span>
                 </div>
                 <div className='pikadex-move-item'>
-                  <span className='pikadex-move-name'>Volt Tackle</span>
+                  <span className='pikadex-move-name'>⚡ Volt Tackle</span>
                   <span className='pikadex-move-details'>Electric, Physical, 120 Power, 100% Accuracy, 15 PP</span>
                 </div>
                 <div className='pikadex-move-item'>
-                  <span className='pikadex-move-name'>Electroweb</span>
+                  <span className='pikadex-move-name'>⚡ Electroweb</span>
                   <span className='pikadex-move-details'>Electric, Special, 55 Power, 95% Accuracy, 15 PP</span>
                 </div>
                 <div className='pikadex-move-item'>
-                  <span className='pikadex-move-name'>Thunder Wave</span>
+                  <span className='pikadex-move-name'>⚡ Thunder Wave</span>
                   <span className='pikadex-move-details'>Electric, Status, - Power, 90% Accuracy, 20 PP</span>
                 </div>
                 <div className='pikadex-move-item'>
-                  <span className='pikadex-move-name'>Nuzzle</span>
+                  <span className='pikadex-move-name'>⚡ Nuzzle</span>
                   <span className='pikadex-move-details'>Electric, Physical, - Power, 100% Accuracy, 20 PP</span>
                 </div>
               </div>
               <h4 className='pikadex-subtitle'>Generation 9</h4>
               <div className='pikadex-move-list'>
                 <div className='pikadex-move-item'>
-                  <span className='pikadex-move-name'>Thunderbolt</span>
+                  <span className='pikadex-move-name'>⚡ Thunderbolt</span>
                   <span className='pikadex-move-details'>Electric, Special, 90 Power, 100% Accuracy, 15 PP</span>
                 </div>
                 <div className='pikadex-move-item'>
-                  <span className='pikadex-move-name'>Thunder</span>
+                  <span className='pikadex-move-name'>⚡ Thunder</span>
                   <span className='pikadex-move-details'>Electric, Special, 90 Power, 100% Accuracy, 15 PP</span>
                 </div>
                 <div className='pikadex-move-item'>
-                  <span className='pikadex-move-name'>Electro Ball</span>
+                  <span className='pikadex-move-name'>⚡ Electro Ball</span>
                   <span className='pikadex-move-details'>Electric, Special, - Power, 100% Accuracy, 10 PP</span>
                 </div>
                 <div className='pikadex-move-item'>
-                  <span className='pikadex-move-name'>Discharge</span>
+                  <span className='pikadex-move-name'>⚡ Discharge</span>
                   <span className='pikadex-move-details'>Electric, Special, 80 Power, 100% Accuracy, 15 PP</span>
                 </div>
                 <div className='pikadex-move-item'>
-                  <span className='pikadex-move-name'>Volt Tackle</span>
+                  <span className='pikadex-move-name'>⚡ Volt Tackle</span>
                   <span className='pikadex-move-details'>Electric, Physical, 120 Power, 100% Accuracy, 15 PP</span>
                 </div>
                 <div className='pikadex-move-item'>
-                  <span className='pikadex-move-name'>Electroweb</span>
+                  <span className='pikadex-move-name'>⚡ Electroweb</span>
                   <span className='pikadex-move-details'>Electric, Special, 55 Power, 95% Accuracy, 15 PP</span>
                 </div>
                 <div className='pikadex-move-item'>
-                  <span className='pikadex-move-name'>Thunder Wave</span>
+                  <span className='pikadex-move-name'>⚡ Thunder Wave</span>
                   <span className='pikadex-move-details'>Electric, Status, - Power, 90% Accuracy, 20 PP</span>
                 </div>
                 <div className='pikadex-move-item'>
-                  <span className='pikadex-move-name'>Nuzzle</span>
+                  <span className='pikadex-move-name'>⚡ Nuzzle</span>
                   <span className='pikadex-move-details'>Electric, Physical, - Power, 100% Accuracy, 20 PP</span>
                 </div>
               </div>
               <h4 className='pikadex-subtitle'>Learned by TM/TR</h4>
               <div className='pikadex-move-list'>
                 <div className='pikadex-move-item'>
-                  <span className='pikadex-move-name'>Power-Up Punch</span>
+                  <span className='pikadex-move-name'>💥 Power-Up Punch</span>
                   <span className='pikadex-move-details'>Fighting, Physical, 80 Power, 85% Accuracy, 20 PP</span>
                 </div>
                 <div className='pikadex-move-item'>
-                  <span className='pikadex-move-name'>Brick Break</span>
+                  <span className='pikadex-move-name'>💥 Brick Break</span>
                   <span className='pikadex-move-details'>Fighting, Physical, 75 Power, 100% Accuracy, 15 PP</span>
                 </div>
                 <div className='pikadex-move-item'>
-                  <span className='pikadex-move-name'>Light Screen</span>
+                  <span className='pikadex-move-name'>🧠 Light Screen</span>
                   <span className='pikadex-move-details'>Psychic, Status, - Power, - Accuracy, 30 PP</span>
                 </div>
                 <div className='pikadex-move-item'>
-                  <span className='pikadex-move-name'>Rest</span>
+                  <span className='pikadex-move-name'>🧠 Rest</span>
                   <span className='pikadex-move-details'>Psychic, Status, - Power, - Accuracy, 10 PP</span>
                 </div>
                 <div className='pikadex-move-item'>
-                  <span className='pikadex-move-name'>Thief</span>
+                  <span className='pikadex-move-name'>🌒 Thief</span>
                   <span className='pikadex-move-details'>Dark, Physical, 60 Power, 100% Accuracy, 25 PP</span>
                 </div>
                 <div className='pikadex-move-item'>
-                  <span className='pikadex-move-name'>Snore</span>
+                  <span className='pikadex-move-name'>🐾 Snore</span>
                   <span className='pikadex-move-details'>Normal, Special, 50 Power, 100% Accuracy, 15 PP</span>
                 </div>
                 <div className='pikadex-move-item'>
-                  <span className='pikadex-move-name'>Charm</span>
+                  <span className='pikadex-move-name'>🧚‍♀️ Charm</span>
                   <span className='pikadex-move-details'>Fairy, Status, - Power, 100% Accuracy, 20 PP</span>
                 </div>
                 <div className='pikadex-move-item'>
-                  <span className='pikadex-move-name'>Rain Dance</span>
+                  <span className='pikadex-move-name'>💦 Rain Dance</span>
                   <span className='pikadex-move-details'>Water, Status, - Power, - Accuracy, 5 PP</span>
                 </div>
                 <div className='pikadex-move-item'>
-                  <span className='pikadex-move-name'>Iron Tail</span>
+                  <span className='pikadex-move-name'>🦾 Iron Tail</span>
                   <span className='pikadex-move-details'>Steel, Physical, 100 Power, 75% Accuracy, 15 PP</span>
                 </div>
               </div>
