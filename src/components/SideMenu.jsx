@@ -67,12 +67,6 @@ function SideMenu() {
                     <span className="side-menu-text">About</span>
                 </div>
             </Link>
-            <Link className='side-menu-link' to="/ai-opinion">
-                <div className="side-menu-item">
-                    <img loading="lazy" className='side-menu-icon' src={theme === 'dark' ? lightAi : darkAi} alt='About Page' />
-                    <span className="side-menu-text">Opinion on AI</span>
-                </div>
-            </Link>
             <Link className='side-menu-link' to="/account">
                 <div className="side-menu-item">
                     <img loading="lazy" className='side-menu-icon' src={theme === 'dark' ? lightUser : darkUser} alt='Account Page' />

@@ -24,7 +24,6 @@ import { FavouritesProvider } from './FavouritesContext';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import Checkout from './pages/Checkout';
-import AiOpinion from './pages/AiOpinion';
 import Music from './pages/Music';
 import LandingPage from './pages/LandingPage';
 
@@ -56,7 +55,6 @@ const App = () => {
                   <Route path="/register" element={<Layout><AppWrapper><RegisterPage /></AppWrapper></Layout>} />
                   <Route path="/browse" element={<Layout><AppWrapper><Browse /></AppWrapper></Layout>} />
                   <Route path="/checkout" element={<Layout><AppWrapper><Checkout /></AppWrapper></Layout>} />
-                  <Route path="/ai-opinion" element={<Layout><AppWrapper><AiOpinion /></AppWrapper></Layout>} />
                   <Route path="/music" element={<Layout><AppWrapper><Music /></AppWrapper></Layout>} />
                   <Route path="/" element={<AppWrapper><LandingPage /></AppWrapper>} />
                   <Route 

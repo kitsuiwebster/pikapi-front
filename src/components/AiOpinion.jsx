@@ -1,5 +1,5 @@
 import React from 'react';
-import '../assets/scss/pages/AiOpinion.scss';
+import '../assets/scss/components/AiOpinion.scss';
 import '../assets/scss/index.scss';
 
 function AiOpinion() {
