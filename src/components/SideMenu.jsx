@@ -20,8 +20,6 @@ import lightLogout from '../assets/images/light-logout.png';
 import darkLogout from '../assets/images/dark-logout.png';
 import lightBrowse from '../assets/images/light-browse.png';
 import darkBrowse from '../assets/images/dark-browse.png';
-import lightAi from '../assets/images/light-ai.png';
-import darkAi from '../assets/images/dark-ai.png';
 import lightMusic from '../assets/images/light-music.png';
 import darkMusic from '../assets/images/dark-music.png';
 

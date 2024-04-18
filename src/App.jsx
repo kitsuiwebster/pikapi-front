@@ -13,7 +13,6 @@ import Favourites from './pages/Favourites';
 import Account from './pages/Account';
 import LoginPage from './pages/LoginPage';
 import PrivateRoute from './components/PrivateRoute';
-import Logout from './components/Logout';
 import { transitions, positions, Provider as AlertProvider } from 'react-alert';
 import CustomAlertTemplate from './components/CustomAlertTemplate';
 import RegisterPage from './pages/RegisterPage';
