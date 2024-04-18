@@ -20,6 +20,10 @@ import lightLogout from '../assets/images/light-logout.png';
 import darkLogout from '../assets/images/dark-logout.png';
 import lightBrowse from '../assets/images/light-browse.png';
 import darkBrowse from '../assets/images/dark-browse.png';
+import lightAi from '../assets/images/light-ai.png';
+import darkAi from '../assets/images/dark-ai.png';
+import lightMusic from '../assets/images/light-music.png';
+import darkMusic from '../assets/images/dark-music.png';
 
 function SideMenu() {
     const { theme } = useTheme();
@@ -51,10 +55,22 @@ function SideMenu() {
                     <span className="side-menu-text">Pikadex</span>
                 </div>
             </Link>
+            <Link className='side-menu-link' to="/music">
+                <div className="side-menu-item">
+                    <img loading="lazy" className='side-menu-icon' src={theme === 'dark' ? lightMusic : darkMusic} alt='Pikadex' />
+                    <span className="side-menu-text">Pikachu Music</span>
+                </div>
+            </Link>
             <Link className='side-menu-link' to="/about">
                 <div className="side-menu-item">
                     <img loading="lazy" className='side-menu-icon' src={theme === 'dark' ? lightAbout : darkAbout} alt='About Page' />
                     <span className="side-menu-text">About</span>
+                </div>
+            </Link>
+            <Link className='side-menu-link' to="/ai-opinion">
+                <div className="side-menu-item">
+                    <img loading="lazy" className='side-menu-icon' src={theme === 'dark' ? lightAi : darkAi} alt='About Page' />
+                    <span className="side-menu-text">Opinion on AI</span>
                 </div>
             </Link>
             <Link className='side-menu-link' to="/account">
