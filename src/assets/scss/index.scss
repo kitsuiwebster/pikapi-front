@@ -7,12 +7,26 @@
 #pikadex,
 #underconstrauction,
 #needtologin,
-#browse {
+#browse,
+#checkout,
+#music,
+#aiopinion {
     max-width: 1400px;
     margin-inline: auto;
     display: flex;
     justify-content: center;
 }
+
+#landingpage {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    transition: background-image 0.9s ease;
+}
+  
+
 
 .color-green {
     color: #32cd32;

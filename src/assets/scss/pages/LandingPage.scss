@@ -1,0 +1,155 @@
+.landingpage {
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+
+    .landingpage-navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem 1rem 0.5rem;
+        background-color: rgba($color: #000000, $alpha: 0);
+
+        .landingpage-nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+
+            .landingpage-li .landingpage-a {
+                text-decoration: none;
+                color: white;
+                font-weight: bold;
+                font-size: 1.6rem;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+                &:hover {
+                    
+                    color: #fff267;
+                    transition: color 0.5s ease;
+                }
+            }
+
+            .landingpage-login-text,
+            .landingpage-login-button {
+                text-decoration: none;
+                font-size: 1.6rem;
+                font-weight: bold;
+                color: white;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+
+            .landingpage-login-button {
+                &:hover {
+                    
+                    color: #fff267;
+                    transition: color 0.5s ease;
+                }
+            }
+        }
+    }
+
+    .landingpage-hero {
+        background-size: cover;
+        background-position: center;
+        text-align: center;
+        padding: 4rem 1rem;
+        color: white;
+        
+
+        .landingpage-hero-title {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .landingpage-hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .landingpage-cta-button {
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            color: black;
+            text-decoration: none;
+            background-color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: #fff267;
+                transition: background-color 1s ease;
+            }
+        }
+    }
+
+    .landingpage-footer {
+        margin-top: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        color: white;
+        background-color: rgba($color: #000000, $alpha: 0);
+        position: relative;
+        z-index: 150;
+        height: auto;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+        .landingpage-ig {
+            margin-left: 1rem;
+            color: black;
+        }
+
+        .landingpage-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .landingpage-text {
+            font-size: 15px;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .landingpage {
+        .landingpage-navbar {
+            .landingpage-nav-links {
+                .landingpage-li .landingpage-a {
+                    font-size: 1.2rem;
+                }
+
+                .landingpage-login-text,
+                .landingpage-login-button {
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .landingpage {
+        .landingpage-navbar {
+            padding-right: 0.5rem;
+            .landingpage-nav-links {
+                padding: 0;
+                .landingpage-li .landingpage-a {
+                    font-size: 1.2rem;
+                }
+
+                .landingpage-login-text,
+                .landingpage-login-button {
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+}
