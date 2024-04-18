@@ -21,6 +21,14 @@ import { AuthProvider } from './AuthContext';
 import NeedToLoginPage from './pages/NeedToLoginPage';
 import Browse from './pages/Browse';
 import { FavouritesProvider } from './FavouritesContext';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+import Checkout from './pages/Checkout';
+import AiOpinion from './pages/AiOpinion';
+import Music from './pages/Music';
+import LandingPage from './pages/LandingPage';
+
+const stripePromise = loadStripe('pk_test_yourPublishableKey');
 
 const options = {
   position: positions.TOP_CENTER,
@@ -33,49 +41,54 @@ const App = () => {
   return (
     <Router>
       <AuthProvider>
-        <FavouritesProvider>
-          <ThemeProvider>
-            <AlertProvider template={CustomAlertTemplate} {...options}>
-              <Routes>
-                <Route path="/" element={<Layout><AppWrapper><Home /></AppWrapper></Layout>} />
-                <Route path="/about" element={<Layout><AppWrapper><About /></AppWrapper></Layout>} />
-                <Route path="/broken" element={<Layout><AppWrapper><UnderConstruction /></AppWrapper></Layout>} />
-                <Route path="/pikadex" element={<Layout><AppWrapper><Pikadex /></AppWrapper></Layout>} />
-                <Route path="/contact" element={<Layout><AppWrapper><Contact /></AppWrapper></Layout>} />
-                <Route path="/login" element={<Layout><AppWrapper><LoginPage /></AppWrapper></Layout>} />
-                <Route path="/need-login" element={<Layout><AppWrapper><NeedToLoginPage /></AppWrapper></Layout>} />
-                <Route path="/register" element={<Layout><AppWrapper><RegisterPage /></AppWrapper></Layout>} />
-                <Route path="/logout" element={<Layout><AppWrapper><Logout /></AppWrapper></Layout>} />
-                <Route path="/browse" element={<Layout><AppWrapper><Browse /></AppWrapper></Layout>} />
-                <Route 
-                  path="/account" 
-                  element={
-                    <PrivateRoute>
-                      <Layout>
-                        <AppWrapper>
-                          <Account />
-                        </AppWrapper>
-                      </Layout>
-                    </PrivateRoute>
-                  } 
-                />
-                <Route 
-                  path="/favourites" 
-                  element={
-                    <PrivateRoute>
-                      <Layout>
-                        <AppWrapper>
-                          <Favourites />
-                        </AppWrapper>
-                      </Layout>
-                    </PrivateRoute>
-                  } 
-                />
-                <Route path="/*" element={<Layout><AppWrapper><NotFound /></AppWrapper></Layout>} />
-              </Routes>
-            </AlertProvider>
-          </ThemeProvider>
-        </FavouritesProvider>
+        <Elements stripe={stripePromise}>
+          <FavouritesProvider>
+            <ThemeProvider>
+              <AlertProvider template={CustomAlertTemplate} {...options}>
+                <Routes>
+                  <Route path="/broken" element={<AppWrapper><Home /></AppWrapper>} />
+                  <Route path="/about" element={<Layout><AppWrapper><About /></AppWrapper></Layout>} />
+                  <Route path="/broken" element={<Layout><AppWrapper><UnderConstruction /></AppWrapper></Layout>} />
+                  <Route path="/pikadex" element={<Layout><AppWrapper><Pikadex /></AppWrapper></Layout>} />
+                  <Route path="/contact" element={<Layout><AppWrapper><Contact /></AppWrapper></Layout>} />
+                  <Route path="/login" element={<Layout><AppWrapper><LoginPage /></AppWrapper></Layout>} />
+                  <Route path="/need-login" element={<Layout><AppWrapper><NeedToLoginPage /></AppWrapper></Layout>} />
+                  <Route path="/register" element={<Layout><AppWrapper><RegisterPage /></AppWrapper></Layout>} />
+                  <Route path="/browse" element={<Layout><AppWrapper><Browse /></AppWrapper></Layout>} />
+                  <Route path="/checkout" element={<Layout><AppWrapper><Checkout /></AppWrapper></Layout>} />
+                  <Route path="/ai-opinion" element={<Layout><AppWrapper><AiOpinion /></AppWrapper></Layout>} />
+                  <Route path="/music" element={<Layout><AppWrapper><Music /></AppWrapper></Layout>} />
+                  <Route path="/" element={<AppWrapper><LandingPage /></AppWrapper>} />
+                  <Route 
+                    path="/account" 
+                    element={
+                      <PrivateRoute>
+                        <Layout>
+                          <AppWrapper>
+                            <Account />
+                          </AppWrapper>
+                        </Layout>
+                      </PrivateRoute>
+                    } 
+                  />
+                  <Route 
+                    path="/favourites" 
+                    element={
+                      <PrivateRoute>
+                        <Layout>
+                          <AppWrapper>
+                            <Favourites />
+                          </AppWrapper>
+                        </Layout>
+                      </PrivateRoute>
+                    } 
+                  />
+                  <Route path="/*" element={<Layout><AppWrapper><NotFound /></AppWrapper></Layout>} />
+                </Routes>
+              </AlertProvider>
+            </ThemeProvider>
+          </FavouritesProvider>
+        </Elements>
       </AuthProvider>
     </Router>
   );
