@@ -22,6 +22,8 @@ import lightBrowse from '../assets/images/light-browse.png';
 import darkBrowse from '../assets/images/dark-browse.png';
 import lightMusic from '../assets/images/light-music.png';
 import darkMusic from '../assets/images/dark-music.png';
+import lightShop from '../assets/images/light-shop.png';
+import darkShop from '../assets/images/dark-shop.png';
 
 function SideMenu() {
     const { theme } = useTheme();
@@ -41,6 +43,12 @@ function SideMenu() {
                     <span className="side-menu-text">Browse Pictures</span>
                 </div>
             </Link>
+            <Link className='side-menu-link' to="/shop">
+                <div className="side-menu-item">
+                    <img loading="lazy" className='side-menu-icon' src={theme === 'dark' ? lightShop : darkShop} alt='Shop' />
+                    <span className="side-menu-text">Shop</span>
+                </div>
+            </Link>
             <Link className='side-menu-link' to="/favourites">
                 <div className="side-menu-item">
                     <img loading="lazy" className='side-menu-icon' src={theme === 'dark' ? lightHeart : darkHeart} alt='Favourite Pictures' />
@@ -55,7 +63,7 @@ function SideMenu() {
             </Link>
             <Link className='side-menu-link' to="/music">
                 <div className="side-menu-item">
-                    <img loading="lazy" className='side-menu-icon' src={theme === 'dark' ? lightMusic : darkMusic} alt='Pikadex' />
+                    <img loading="lazy" className='side-menu-icon' src={theme === 'dark' ? lightMusic : darkMusic} alt='Pikachu Music' />
                     <span className="side-menu-text">Pikachu Music</span>
                 </div>
             </Link>

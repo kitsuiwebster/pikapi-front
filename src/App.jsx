@@ -25,6 +25,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import Checkout from './pages/Checkout';
 import Music from './pages/Music';
 import LandingPage from './pages/LandingPage';
+import Shop from './pages/Shop';
 
 const stripePromise = loadStripe('pk_test_yourPublishableKey');
 
@@ -55,6 +56,7 @@ const App = () => {
                   <Route path="/browse" element={<Layout><AppWrapper><Browse /></AppWrapper></Layout>} />
                   <Route path="/checkout" element={<Layout><AppWrapper><Checkout /></AppWrapper></Layout>} />
                   <Route path="/music" element={<Layout><AppWrapper><Music /></AppWrapper></Layout>} />
+                  <Route path="/shop" element={<Layout><AppWrapper><Shop /></AppWrapper></Layout>} />
                   <Route path="/" element={<AppWrapper><LandingPage /></AppWrapper>} />
                   <Route 
                     path="/account" 
