@@ -122,6 +122,8 @@
     .landingpage {
         .landingpage-navbar {
             .landingpage-nav-links {
+                flex-direction: column;
+                align-items: end;
                 .landingpage-li .landingpage-a {
                     font-size: 1.2rem;
                 }
