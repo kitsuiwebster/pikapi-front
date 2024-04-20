@@ -12,6 +12,7 @@ function Favourites() {
     const [favourites, setFavourites] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedPicture, setSelectedPicture] = useState(null); // State to keep track of selected picture for download
+    const [selectedPictureId, setSelectedPictureId] = useState('');
     const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
 
     useEffect(() => {
@@ -81,6 +82,7 @@ function Favourites() {
 
     const handleDownloadClick = (picture) => {
         setSelectedPicture(picture);
+        setSelectedPictureId(picture._id); // Set the selected picture ID here
         setIsModalOpen(true);
     };
 
@@ -122,10 +124,10 @@ function Favourites() {
                 </div>
             </div>
             {isModalOpen && selectedPicture && (
-                <DownloadModal
-                    onClose={() => setIsModalOpen(false)}
-                    link1k={selectedPicture.downloadLink1k}
-                    link4k={selectedPicture.downloadLink4k}
+            <DownloadModal
+                onClose={() => setIsModalOpen(false)}
+                link1k={selectedPicture.downloadLink1k}
+                selectedPictureId={selectedPictureId} // Pass the selected picture ID here
                 />
             )}
         </div>
