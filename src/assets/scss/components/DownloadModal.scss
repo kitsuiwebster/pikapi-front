@@ -34,6 +34,19 @@
         flex-direction: column;
     }
 
+    &-text {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    &-4k {
+        margin-top: 3rem;
+    }
+
+    &-purchase {
+        margin-bottom: 0 !important;
+    }
+
     &-button {
         background-color: black;
         color: white;
@@ -43,9 +56,14 @@
         margin: 10px 0;
         cursor: pointer;
         transition: background-color 0.3s;
+        font-size: 1.2rem;
+        font-weight: 400;
+        border-radius: 10px;
+        border-width: 0;
+        appearance: none;
 
         &:hover {
-            color: #ffe900;
+            color: #fcff46;
         }
 
         .dark & {
@@ -54,8 +72,19 @@
 
             &:hover {
                 color: black;
-                background-color: #ffe900;
+                background-color: #fcff46;
             }
         }
+    }
+
+
+    &-icon {
+        width: 3rem;
+    }
+
+    &-img {
+        margin-top: 2rem;
+        width: 10rem;
+        max-width: 300px;
     }
 }
