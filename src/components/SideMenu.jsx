@@ -40,7 +40,7 @@ function SideMenu() {
             <Link className='side-menu-link' to="/browse">
                 <div className="side-menu-item">
                     <img loading="lazy" className='side-menu-icon' src={theme === 'dark' ? lightBrowse : darkBrowse} alt='Browse Pictures' />
-                    <span className="side-menu-text">Browse Pictures</span>
+                    <span className="side-menu-text">Browse Illustrations</span>
                 </div>
             </Link>
             <Link className='side-menu-link' to="/shop">
