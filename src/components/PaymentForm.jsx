@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import '../assets/scss/components/PaymentForm.scss';
+import { CardNumberElement, CardExpiryElement, CardCvcElement } from '@stripe/react-stripe-js';
+
 
 const PaymentForm = () => {
     const stripe = useStripe();
@@ -52,47 +55,23 @@ const PaymentForm = () => {
         }
     };
 
-    const CARD_ELEMENT_OPTIONS = {
-        style: {
-            base: {
-                color: '#303238',
-                fontSize: '16px',
-                fontFamily: 'sans-serif',
-                fontSmoothing: 'antialiased',
-                '::placeholder': {
-                color: '#CFD7DF',
-                },
-                ':-webkit-autofill': {
-                color: '#e39f48',
-                },
-            },
-            invalid: {
-                color: '#e5424d',
-                ':focus': {
-                color: '#303238',
-                },
-            },
-        },
-    };
-
     return (
-        <form onSubmit={handleSubmit}>
-        <CardElement 
-            options={CARD_ELEMENT_OPTIONS}
-            onChange={(event) => {
-                if (event.error) {
-                setError(event.error.message);
-                } else {
-                setError(null);
-                }
-            }}
-        />
+        <form className='paymentform' onSubmit={handleSubmit}>
 
-        <button type="submit" disabled={!stripe}>
-            Pay
-        </button>
-        {error && <div className="error">{error}</div>}
-        {paymentSuccessful && <div>Payment Successful!</div>}
+            <div className='paymentform-fields'>
+                <CardNumberElement className="StripeElement" /* ... */ />
+                <div className='paymentform-smalls-fields'>
+                    <CardExpiryElement className="StripeElement" /* ... */ />
+                    <CardCvcElement className="StripeElement" /* ... */ />
+                </div>
+            </div>
+
+
+            <button className='paymentform-button' type="submit" disabled={!stripe}>
+                Pay
+            </button>
+            {error && <div className="error">{error}</div>}
+            {paymentSuccessful && <div>Payment Successful!</div>}
         </form>
     );  
 };

@@ -1,0 +1,21 @@
+#checkout {
+    width: 500px;
+}
+
+@media screen and (max-width: 700px) {
+    #checkout {
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #checkout {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    #checkout {
+        width: 200px;
+    }
+}
