@@ -88,7 +88,7 @@ function Browse() {
     return (
         <div id="browse">
             <div className='browse'>
-                <h1 className='title'>Browse Pictures</h1>
+                <h1 className='title'>Browse Illustrations</h1>
                 <input
                     className='input'
                     type="text"
