@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 function PaymentSuccess() {
     const location = useLocation();
     const [paymentStatus, setPaymentStatus] = useState('pending');
-    const [pictureId, setPictureId] = useState(null); // Store the pictureId
+    const [pictureId, setPictureId] = useState(null);
 
     useEffect(() => {
         const sessionId = new URLSearchParams(location.search).get('session_id');
@@ -24,7 +24,7 @@ function PaymentSuccess() {
             });
             if (response.data.success) {
                 setPaymentStatus('success');
-                setPictureId(response.data.pictureId); // Set the picture ID from the response
+                setPictureId(response.data.pictureId);
             } else {
                 setPaymentStatus('failed');
             }
@@ -37,12 +37,11 @@ function PaymentSuccess() {
     const handleDownload = async () => {
         try {
             const response = await axios.get(`${url}/pictures/secure-download/${pictureId}`, { responseType: 'blob' });
-            // Create a new Blob object using the response data of the file
             const blob = new Blob([response.data], { type: 'image/png' });
             const downloadUrl = window.URL.createObjectURL(blob);
             const link = document.createElement('a');
             link.href = downloadUrl;
-            link.setAttribute('download', 'pikachu4k.png'); // Set the file name
+            link.setAttribute('download', 'pikachu4k.png');
             document.body.appendChild(link);
             link.click();
             link.parentNode.removeChild(link);
