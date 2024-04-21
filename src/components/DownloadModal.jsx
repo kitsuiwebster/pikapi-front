@@ -3,9 +3,12 @@ import '../assets/scss/components/DownloadModal.scss';
 import axios from 'axios';
 import { url } from '../index';
 import pikachuSticker from '../assets/images/pika-sticker.png';
+
 import visaLogo from '../assets/images/visa.png';
-import mastercardLogo from '../assets/images/mastercard.png';
+import mastercardLogo from '../assets/images/mastercard.png'
 import paypalLogo from '../assets/images/paypal.png';
+import gpayLogo from '../assets/images/gpay.png';
+import applepayLogo from '../assets/images/apple-pay.png';
 
 function DownloadModal({ onClose, link1k, selectedPictureId }) { // Include selectedPictureId in the props
     useEffect(() => {
@@ -59,9 +62,11 @@ function DownloadModal({ onClose, link1k, selectedPictureId }) { // Include sele
                     <p className='downloadmodal-text downloadmodal-4k'>4000x4000 Pixels (4K)</p>
                     <button onClick={purchase4kImage} className="downloadmodal-button downloadmodal-purchase">Purchase $3.00</button>
                     <div className='downlaodmodal-icons'>
-                        <img className='downloadmodal-icon' src={visaLogo} alt="paypal" />
-                        <img className='downloadmodal-icon' src={mastercardLogo} alt="visa" />
-                        <img className='downloadmodal-icon' src={paypalLogo} alt="mastercard" />
+                        <img className='downloadmodal-icon' src={visaLogo} alt="via" />
+                        <img className='downloadmodal-icon' src={mastercardLogo} alt="mastercard" />
+                        <img className='downloadmodal-icon' src={paypalLogo} alt="paypal" />
+                        <img className='downloadmodal-icon' src={gpayLogo} alt="gpay" />
+                        <img className='downloadmodal-icon' src={applepayLogo} alt="apple pay" />
                     </div>
                 </div>
                 <img className='downloadmodal-img' alt='pikachu sticker' src={pikachuSticker}></img>
