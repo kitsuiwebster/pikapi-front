@@ -1,0 +1,122 @@
+.cancel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff0f0;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.25);
+    max-width: 500px;
+    margin: 50px auto;
+
+    .cancel-header {
+        background-color: #ffdddd;
+        border-bottom: 3px solid #ffcccc;
+        width: 100%;
+    }
+    
+    .cancel-title {
+        color: #990000;
+        font-size: 26px;
+        padding: 15px 20px;
+        text-align: center;
+    }
+    
+    .cancel-body {
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .cancel-description {
+        color: #660000;
+        font-size: 18px;
+        margin-bottom: 25px;
+    }
+    
+    .button-container {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+    }
+    
+    .cancel-button {
+        padding: 10px 30px;
+        border: none;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+        border-radius: 8px;
+        outline: none;
+        background-color: #ff6666;
+    
+        &:hover {
+            background-color: #cc0000;
+            transform: translateY(-2px);
+        }
+    }
+    
+    .cancel-footer {
+        margin-top: 25px;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .cancel-footer-text {
+        color: #993333;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .cancel {
+        padding: 15px;  
+        margin: 20px auto;
+        max-width: 20rem;
+    }
+    
+    .cancel-title {
+        font-size: 22px;  
+    }
+    
+    .cancel-description {
+        font-size: 16px;  
+    }
+    
+    .button-container {
+        flex-direction: column;  
+        gap: 10px;  
+    }
+    
+    .cancel-button {
+        width: 100%;  
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .cancel {
+        padding: 10px;  
+        margin: 10px auto;  
+        max-width: 17rem;
+    }
+    
+    .cancel-title {
+        font-size: 20px;  
+    }
+    
+    .cancel-description {
+        font-size: 14px;  
+    }
+    
+    .button-container {
+        gap: 5px;  
+    }
+    
+    .cancel-button {
+        padding: 8px 20px;  
+    }
+    
+    .cancel-footer-text {
+        font-size: 14px;  
+    }
+}
