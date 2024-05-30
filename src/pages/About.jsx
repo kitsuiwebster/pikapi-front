@@ -2,7 +2,7 @@ import React from 'react';
 import '../assets/scss/pages/About.scss';
 import '../assets/scss/index.scss';
 import about from '../assets/images/about.png';
-import AiOpinion from '../components/AiOpinion';
+// import AiOpinion from '../components/AiOpinion';
 
 function About() {
     return (
@@ -21,7 +21,7 @@ function About() {
                         <img src={about} alt="Pikapi" className="about-image" />
                     </div>
 
-                    <AiOpinion/>
+                    {/* <AiOpinion/> */}
                 </div>
             </div>
         </>
