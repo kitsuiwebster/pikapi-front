@@ -19,11 +19,10 @@ function Music() {
                         <iframe
                             className='music-spotify-player-iframe'
                             title='Pikachu Song'
-                            style={{ borderRadius: '12px' }} 
+                            style={{ borderRadius: '12px', border: '0'}} 
                             src="https://open.spotify.com/embed/track/630YJCt2eABHHH9mLTUPqB?utm_source=generator" 
                             width="100%" 
                             height="352" 
-                            frameBorder="0" 
                             allowFullScreen="" 
                             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
                             loading="lazy">
@@ -34,12 +33,11 @@ function Music() {
                         <iframe
                             className='music-spotify-player-iframe'
                             title='Pikachu Playlist'
-                            style={{ borderRadius: '12px' }} 
+                            style={{ borderRadius: '12px', border: '0'}} 
                             src="https://open.spotify.com/embed/playlist/52dGMtt01uLekWJ7AHZSGO?utm_source=generator" 
                             width="100%" 
                             height="352" 
-                            frameBorder="0" 
-                            allowfullscreen="" 
+                            allowFullScreen="" 
                             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
                             loading="lazy">
                         </iframe>
