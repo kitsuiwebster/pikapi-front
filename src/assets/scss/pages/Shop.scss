@@ -5,14 +5,8 @@
     padding: 20px;
 }
 
-.title {
-    margin-bottom: 20px;
-    font-size: 2em;
-    color: #333;
-}
-
-.search-input,
-.filter-select {
+.shop-search-input,
+.shop-filter-select {
     padding: 10px;
     margin: 10px;
     border: 1px solid #ccc;
@@ -20,11 +14,17 @@
     font-size: 16px;
 }
 
-.search-input {
+.shop-search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shop-search-input {
     width: 300px;
 }
 
-.filter-select {
+.shop-filter-select {
     width: 200px;
 }
 

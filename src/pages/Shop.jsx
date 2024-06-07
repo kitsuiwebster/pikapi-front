@@ -26,22 +26,21 @@ function Shop() {
         <>
             <div id="shop">
                 <div className="shop">
-                    <h1 className='title'>Shop</h1>
-                    <input
-                        type="text"
-                        placeholder="Search items..."
-                        onChange={handleSearchChange}
-                        className="search-input"
-                    />
-                    <select onChange={handleFilterChange} className="filter-select">
-                        <option value="">All Types</option>
-                        <option value="Electronics">Electronics</option>
-                        <option value="Books">Books</option>
-                        <option value="Gadgets">Gadgets</option>
-                        <option value="Clothing">Clothing</option>
-                        <option value="Outdoor">Outdoor</option>
-                        <option value="Beauty">Beauty</option>
-                    </select>
+                    <h1 className='title'>Pikapi Shop</h1>
+                    <div className='shop-search-container'>
+                        <input
+                            type="text"
+                            placeholder="Search items..."
+                            onChange={handleSearchChange}
+                            className="shop-search-input"
+                        />
+                        <select onChange={handleFilterChange} className="shop-filter-select">
+                            <option value="">All Types</option>
+                            <option value="Phone Wallpaper">Phone Wallpapers</option>
+                            <option value="Desktop Wallpaper">Desktop Wallpapers</option>
+                            <option value="Bundle">Bundles</option>
+                        </select>
+                    </div>
                     <div className="shop-items">
                         {filteredItems.map(item => (
                             <ShopItem
