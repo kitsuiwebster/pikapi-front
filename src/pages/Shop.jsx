@@ -1,4 +1,3 @@
-// src/pages/Shop.jsx
 import React, { useState } from 'react';
 import ShopItem from '../components/ShopItem';
 import itemsData from '../js/shop-items';
@@ -49,6 +48,7 @@ function Shop() {
                                 title={item.title}
                                 price={item.price}
                                 iconPath={item.iconPath}
+                                free={item.free}
                             />
                         ))}
                     </div>

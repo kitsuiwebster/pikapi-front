@@ -1,7 +1,7 @@
 import React from 'react';
 import '../assets/scss/components/ShopItem.scss';
 
-function ShopItem({ imagePath, title, price, iconPath }) {
+function ShopItem({ imagePath, title, price, iconPath, free }) {
     return (
         <div className="shopitem">
             <img src={imagePath} alt={title} className="shopitem-image" />
@@ -9,7 +9,11 @@ function ShopItem({ imagePath, title, price, iconPath }) {
                 <h3 className="shopitem-title">{title}</h3>
             </div>
             <div className="shopitem-icon">
-                <p className="shopitem-price">${price}</p>
+                {free ? (
+                    <p className="shopitem-price" style={{ color: 'green' }}>Free</p>
+                ) : (
+                    <p className="shopitem-price">${price}</p>
+                )}
                 <img className='shopitem-icon' src={iconPath} alt="Icon" />
             </div>
         </div>
