@@ -31,7 +31,7 @@ function PaymentSuccessLayout({ children }) {
 
                 <footer className="paymentsuccesslayout-footer">
                     <p className='paymentsuccesslayout-footer-text'>© Copyright Pikapi All Rights Reserved</p>
-                    <a className='paymentsuccesslayout-footer-container' href="https://www.instagram.com/ai.pikachu/" target="_blank" rel="noopener noreferrer">
+                    <a className='paymentsuccesslayout-footer-container' href="https://www.instagram.com/kitsuiwebster/" target="_blank" rel="noopener noreferrer">
                         <FaInstagram className='paymentsuccesslayout-footer-ig' />
                     </a>
                 </footer>

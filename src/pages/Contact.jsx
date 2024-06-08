@@ -61,8 +61,8 @@ function Contact() {
                         {contactMessage && <p className={contactMessage === 'Your message has been sent 😋' ? 'color-green' : 'color-red'}>{contactMessage}</p>}
                     </div>
                     <div className='contact-ig'>
-                        <p className='contact-ig-text'>Feel free to reach out to us directly on Instagram, though please note that responses may be less immediate.</p>
-                        <a className='contact-ig-link' href="https://www.instagram.com/ai.pikachu/" target="_blank" rel="noopener noreferrer">Instagram @ai.pikachu</a>
+                        <p className='contact-ig-text'>Feel free to reach out to @kitsuiwebster directly on Instagram, though please note that responses may be less immediate.</p>
+                        <a className='contact-ig-link' href="https://www.instagram.com/kitsuiwebster/" target="_blank" rel="noopener noreferrer">Instagram @kitsuiwebster</a>
                     </div>
                 </div>
             </div>
