@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Picture from '../components/Picture';
-import DownloadModal from '../components/DownloadModal'; // Import the modal component
+import DownloadModal from '../components/DownloadModal'; 
 import { useAuth } from '../AuthContext';
 import '../assets/scss/pages/Favourites.scss';
-import nofav from '../assets/images/nofav.png'; // Make sure the path is correct
+import nofav from '../assets/images/nofav.png'; 
 import { url } from '../index';
 
 function Favourites() {
     const { isAuthenticated, token } = useAuth();
     const [favourites, setFavourites] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
-    const [selectedPicture, setSelectedPicture] = useState(null); // State to keep track of selected picture for download
+    const [selectedPicture, setSelectedPicture] = useState(null); 
     const [selectedPictureId, setSelectedPictureId] = useState('');
-    const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
+    const [isModalOpen, setIsModalOpen] = useState(false); 
 
     useEffect(() => {
         const fetchFavourites = async () => {
@@ -82,7 +82,7 @@ function Favourites() {
 
     const handleDownloadClick = (picture) => {
         setSelectedPicture(picture);
-        setSelectedPictureId(picture._id); // Set the selected picture ID here
+        setSelectedPictureId(picture._id); 
         setIsModalOpen(true);
     };
 
@@ -127,7 +127,7 @@ function Favourites() {
             <DownloadModal
                 onClose={() => setIsModalOpen(false)}
                 link1k={selectedPicture.downloadLink1k}
-                selectedPictureId={selectedPictureId} // Pass the selected picture ID here
+                selectedPictureId={selectedPictureId} 
                 />
             )}
         </div>
