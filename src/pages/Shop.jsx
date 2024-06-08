@@ -16,10 +16,14 @@ function Shop() {
         setFilterType(event.target.value);
     };
 
-    const filteredItems = itemsData.filter(item =>
-        (item.title.toLowerCase().includes(searchTerm) || item.tags.some(tag => tag.includes(searchTerm))) &&
-        (filterType ? item.type === filterType : true)
-    );
+    const filteredItems = itemsData.filter(item => {
+        const searchTermMatch = item.title.toLowerCase().includes(searchTerm) || item.tags.some(tag => tag.includes(searchTerm));
+        if (filterType === "Free Items") {
+            return searchTermMatch && item.free === true;
+        } else {
+            return searchTermMatch && (filterType ? item.type === filterType : true);
+        }
+    });
 
     return (
         <>
@@ -34,10 +38,11 @@ function Shop() {
                             className="shop-search-input"
                         />
                         <select onChange={handleFilterChange} className="shop-filter-select">
-                            <option value="">All Types</option>
+                            <option value="">All Items</option>
                             <option value="Phone Wallpaper">Phone Wallpapers</option>
                             <option value="Desktop Wallpaper">Desktop Wallpapers</option>
                             <option value="Bundle">Bundles</option>
+                            <option value="Free Items">Free Items</option>
                         </select>
                     </div>
                     <div className="shop-items">
