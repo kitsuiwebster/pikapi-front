@@ -1,25 +1,36 @@
-
 .music {
-    min-width: 700px;
+    min-width: 1px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    
+  
     &-spotify-player {
         width: 100%;
         margin-bottom: 20px;
-    
-        &-iframe {
-            border-radius: 8px;
+  
+        .responsive-iframe-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+  
+            iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: 0;
+                border-radius: 8px;
+            }
         }
     }
-
+  
     &-playlist-title {
         font-size: 2rem;
         margin: 1rem;
     }
-    
+  
     &-song-cover {
         width: 100%;
         display: flex;
@@ -27,26 +38,82 @@
         max-width: 29rem;
         align-items: center;
         margin: 2rem;
-
+  
         &-img {
             max-width: 10rem;
             border-radius: 8px;
             transition: transform 0.2s ease;
-
+  
             &:hover {
                 transform: scale(1.1);
             }
         }
-
+  
         &-text {
-            text-align:left;
+            text-align: left;
             margin: 1.5rem;
         }
     }
-
+  
     .dark & {
         color: white;
     }
-}
-
-
+  
+    // Media Queries
+    @media (max-width: 768px) {
+        .music {
+            min-width: auto;
+            padding: 10px;
+        }
+  
+        .music-spotify-player-iframe {
+            height: 250px;
+        }
+    }
+  
+    @media (max-width: 480px) {
+        .music-spotify-player-iframe {
+            height: 200px;
+        }
+    }
+  
+    @media (max-width: 480px) {
+      .music-spotify-player-iframe {
+          height: 100px;
+          }
+      }
+  }
+  
+  .music-spotify-player {
+      width: 100%;
+  }
+  
+  @media (max-width: 500px) {
+      .music-song-cover {
+          flex-direction: column;
+      }
+  
+      .music {
+          padding: 0;
+      }
+  }
+  
+  @media (max-width: 400px) {
+  
+      .music-song-cover {
+          margin: 0;
+      }
+  
+      .music-playlist-title {
+          font-size: 20px;
+      }
+  
+      .music-song-cover-text {
+          margin: 1.5rem 0.5rem;
+      }
+  
+      .music-song-cover-img {
+          margin-top: 1.5rem;
+      }
+  }
+  
