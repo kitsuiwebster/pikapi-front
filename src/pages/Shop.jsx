@@ -3,6 +3,7 @@ import ShopItem from '../components/ShopItem';
 import itemsData from '../js/shop-items';
 import '../assets/scss/pages/Shop.scss';
 import '../assets/scss/index.scss';
+import { Link } from 'react-router-dom';
 
 function Shop() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -50,6 +51,7 @@ function Shop() {
             <option value="Bundle">Bundles</option>
             <option value="Free Items">Free Items</option>
           </select>
+          <Link to="/cart" className="button shop-cart-button">View Cart</Link>
         </div>
         <div className="shop-items">
           {sortedItems.map(item => (

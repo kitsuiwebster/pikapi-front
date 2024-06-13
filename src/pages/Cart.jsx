@@ -59,7 +59,10 @@ function Cart() {
           ))}
           <div className="cart-summary">
             <p className="cart-summary-total-price">Total Price: ${getTotalPrice().toFixed(2)}</p>
-            <button className='button' onClick={handleCheckout}>Checkout</button>
+            <div className='cart-summary-buttons'>
+              <Link to="/shop" className="button cart-summary-button">Continue Shopping</Link>
+              <button className='button' onClick={handleCheckout}>Checkout</button>
+            </div>
           </div>
         </div>
       )}

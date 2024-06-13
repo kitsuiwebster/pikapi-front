@@ -5,6 +5,7 @@ import { CartContext } from '../CartContext';
 import Slider from 'react-slick';
 import '../assets/scss/pages/ItemDetail.scss';
 import '../assets/scss/index.scss';
+import { Link } from 'react-router-dom';
 
 const NextArrow = (props) => {
   const { className, style, onClick } = props;
@@ -75,6 +76,7 @@ function ItemDetail() {
         {!item.free && (
           <button className="button" onClick={() => addToCart(item)}>Add to Cart</button>
         )}
+        <Link to="/cart" className="button item-detail-cart-button">View Cart</Link>
       </div>
       <p className="item-detail-disclaimer">* This is a digital item. No physical product will be shipped.</p>
     </div>

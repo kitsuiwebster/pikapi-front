@@ -34,6 +34,7 @@
             padding: 1em;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            align-items: center;
     
             .cart-item-image {
             width: 100px;
@@ -64,6 +65,22 @@
 
         &-total-price {
             margin: 0.5rem;
+        }
+
+        &-buttons {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    .dark & {
+        color: white;
+
+        .cart-items {
+            .cart-item {
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            }
         }
     }
 }
