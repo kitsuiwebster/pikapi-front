@@ -5,11 +5,11 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(checkAuth());
-    const [token, setToken] = useState(localStorage.getItem('token') || ''); // Add token state
+    const [token, setToken] = useState(localStorage.getItem('token') || ''); 
 
     useEffect(() => {
         setIsAuthenticated(checkAuth());
-        setToken(localStorage.getItem('token')); // Update token from localStorage
+        setToken(localStorage.getItem('token'));
     }, []);
 
     return (

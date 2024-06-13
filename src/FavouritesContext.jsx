@@ -11,7 +11,7 @@ export const FavouritesProvider = ({ children }) => {
 
     useEffect(() => {
         const fetchUserFavourites = async () => {
-            const userId = localStorage.getItem('userId'); // Get user ID from local storage
+            const userId = localStorage.getItem('userId'); 
             console.log(userId);
             if (token && userId) {
                 try {
@@ -28,7 +28,7 @@ export const FavouritesProvider = ({ children }) => {
         if (isAuthenticated) {
             fetchUserFavourites();
         }
-    }, [isAuthenticated, token]); // Ensure fetchUserFavourites function uses the latest token and isAuthenticated state
+    }, [isAuthenticated, token]); 
 
     const addFavourite = async (pictureId) => {
         try {
