@@ -11,8 +11,8 @@ function About() {
                 <div className="about">
                     <h1 className="title">About Pikapi</h1>
                     <p className="about-text">
-                        Welcome to Pikapi, the ultimate platform for Pikachu enthusiasts! Created by
-                        <a target="_blank" rel="noopener noreferrer" href="https://kitsuiwebster.com" className="about-link">Raphaël Martin</a>
+                        Welcome to Pikapi, the ultimate platform for Pikachu enthusiasts! Created by 
+                        <a target="_blank" rel="noopener noreferrer" href="https://kitsuiwebster.com" className="about-link"> Raphaël Martin</a>
                         , also known as @kitsuiwebster, Pikapi allows fans to discover stunning Pikachu illustrations, manage their collections, and download their favourites. As a hub for digital Pikachu-themed content, Pikapi also features a shop where users can purchase exclusive digital items. Excitingly, merchandise options will soon be available!
                     </p>
                     <h2 className="about-heading">The Story of Pikapi</h2>
