@@ -1,0 +1,23 @@
+.back-arrow-container {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+
+    .back-arrow {
+        width: 3rem;
+        cursor: pointer;
+        margin: -0.5rem 0;
+        transition: all 0.2s ease;
+        transition-duration: 0.4s;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .back-arrow-container {
+        display: none;
+    }
+}
