@@ -6,7 +6,7 @@ import '../assets/scss/index.scss';
 
 function Shop() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [filterType, setFilterType] = useState('');
+  const [filterType, setFilterType] = useState('Featured Items');
 
   const handleSearchChange = event => {
     setSearchTerm(event.target.value.toLowerCase());
@@ -20,10 +20,16 @@ function Shop() {
     const searchTermMatch = item.title.toLowerCase().includes(searchTerm) || item.tags.some(tag => tag.includes(searchTerm));
     if (filterType === "Free Items") {
       return searchTermMatch && item.free === true;
+    } else if (filterType === "Featured Items") {
+      return searchTermMatch;
     } else {
       return searchTermMatch && (filterType ? item.type === filterType : true);
     }
   });
+
+  const sortedItems = filterType === "Featured Items"
+    ? filteredItems.sort((a, b) => b.numberOfTimePurchased - a.numberOfTimePurchased)
+    : filteredItems;
 
   return (
     <div id="shop">
@@ -36,7 +42,8 @@ function Shop() {
             onChange={handleSearchChange}
             className="shop-search-input"
           />
-          <select onChange={handleFilterChange} className="shop-filter-select">
+          <select onChange={handleFilterChange} className="shop-filter-select" value={filterType}>
+            <option value="Featured Items">Featured Items</option>
             <option value="">All Items</option>
             <option value="Phone Wallpaper">Phone Wallpapers</option>
             <option value="Desktop Wallpaper">Desktop Wallpapers</option>
@@ -45,10 +52,10 @@ function Shop() {
           </select>
         </div>
         <div className="shop-items">
-          {filteredItems.map(item => (
+          {sortedItems.map(item => (
             <ShopItem
               key={item.id}
-              id={item.id} // Pass the id here
+              id={item.id}
               imagePath={item.imagePath}
               title={item.title}
               price={item.price}

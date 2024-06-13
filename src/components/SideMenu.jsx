@@ -24,6 +24,8 @@ import lightMusic from '../assets/images/light-music.png';
 import darkMusic from '../assets/images/dark-music.png';
 import lightShop from '../assets/images/light-shop.png';
 import darkShop from '../assets/images/dark-shop.png';
+import lightCart from '../assets/images/light-cart.png';
+import darkCart from '../assets/images/dark-cart.png';
 
 function SideMenu() {
     const { theme } = useTheme();
@@ -47,6 +49,12 @@ function SideMenu() {
                 <div className="side-menu-item">
                     <img loading="lazy" className='side-menu-icon' src={theme === 'dark' ? lightShop : darkShop} alt='Shop' />
                     <span className="side-menu-text">Shop</span>
+                </div>
+            </Link>
+            <Link className='side-menu-link' to="/cart">
+                <div className="side-menu-item">
+                    <img loading="lazy" className='side-menu-icon' src={theme === 'dark' ? lightCart : darkCart} alt='Cart' />
+                    <span className="side-menu-text">Cart</span>
                 </div>
             </Link>
             <Link className='side-menu-link' to="/favourites">

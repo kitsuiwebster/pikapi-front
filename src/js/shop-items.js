@@ -27,7 +27,8 @@ const itemsData = [
         tags: ['jungle', 'explorer'],
         type: 'Phone Wallpaper',
         free: true,
-        description: freePhoneWallpaperDescription
+        description: freePhoneWallpaperDescription,
+        numberOfTimePurchased: 3
     },
     {
         id: 1001,
@@ -39,7 +40,8 @@ const itemsData = [
         tags: ['underwater', 'explorer', 'ocean', 'boat'],
         type: 'Phone Wallpaper',
         free: true,
-        description: freePhoneWallpaperDescription
+        description: freePhoneWallpaperDescription,
+        numberOfTimePurchased: 2
     },
     {
         id: 1002,
@@ -50,7 +52,8 @@ const itemsData = [
         tags: ['night', 'sky', 'stars', 'moon'],
         type: 'Phone Wallpaper',
         free: true,
-        description: freePhoneWallpaperDescription
+        description: freePhoneWallpaperDescription,
+        numberOfTimePurchased: 0
     },
     {
         id: 1003,
@@ -61,7 +64,8 @@ const itemsData = [
         tags: ['night', 'hero', 'moon', 'stars'],
         type: 'Phone Wallpaper',
         free: true,
-        description: freePhoneWallpaperDescription
+        description: freePhoneWallpaperDescription,
+        numberOfTimePurchased: 4
     },
     {
         id: 1004,
@@ -72,7 +76,8 @@ const itemsData = [
         tags: ['bubble', 'party'],
         type: 'Phone Wallpaper',
         free: true,
-        description: freePhoneWallpaperDescription
+        description: freePhoneWallpaperDescription,
+        numberOfTimePurchased: 1
     },
     {
         id: 1005,
@@ -83,7 +88,8 @@ const itemsData = [
         tags: ['swimming', 'pool'],
         type: 'Phone Wallpaper',
         free: true,
-        description: freePhoneWallpaperDescription
+        description: freePhoneWallpaperDescription,
+        numberOfTimePurchased: 0
     },
     {
         id: 1006,
@@ -94,7 +100,8 @@ const itemsData = [
         tags: ['ski', 'magical', 'sky', 'stars'],
         type: 'Phone Wallpaper',
         free: false,
-        description: paidPhoneWallpaperDescription
+        description: paidPhoneWallpaperDescription,
+        numberOfTimePurchased: 6
     },
     {
         id: 1007,
@@ -105,7 +112,8 @@ const itemsData = [
         tags: ['umbrella', 'night', 'ride'],
         type: 'Phone Wallpaper',
         free: true,
-        description: freePhoneWallpaperDescription
+        description: freePhoneWallpaperDescription,
+        numberOfTimePurchased: 0
     }
 ];
 

@@ -1,8 +1,11 @@
-import React from 'react';
+// src/components/ItemDetail.jsx
+
+import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import itemsData from '../js/shop-items';
-import '../assets/scss/pages/ItemDetail.scss';
+import { CartContext } from '../CartContext';
 import Slider from 'react-slick';
+import '../assets/scss/pages/ItemDetail.scss';
 import '../assets/scss/index.scss';
 
 const NextArrow = (props) => {
@@ -34,6 +37,7 @@ const PrevArrow = (props) => {
 function ItemDetail() {
   const { id } = useParams();
   const item = itemsData.find(item => item.id === parseInt(id));
+  const { addToCart } = useContext(CartContext);
 
   if (!item) {
     return <div>Item not found</div>;
@@ -69,6 +73,7 @@ function ItemDetail() {
       <button className="button">
         {item.free ? 'Download Now' : 'Buy Now'}
       </button>
+      <button className="button" onClick={() => addToCart(item)}>Add to Cart</button>
       <p className="item-detail-disclaimer">* This is a digital item. No physical product will be shipped.</p>
     </div>
   );

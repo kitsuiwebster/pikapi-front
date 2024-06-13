@@ -30,6 +30,8 @@ import PaymentSuccess from './pages/PaymentSuccess';
 import PaymentSuccessLayout from './layouts/PaymentSuccessLayout';
 import PaymentCancel from './pages/PaymentCancel';
 import ItemDetail from './pages/ItemDetail';
+import Cart from './pages/Cart';
+import { CartProvider } from './CartContext';
 
 const stripePromise = loadStripe('pk_test_yourPublishableKey');
 
@@ -45,55 +47,36 @@ const App = () => {
     <Router>
       <AuthProvider>
         <Elements stripe={stripePromise}>
-          <FavouritesProvider>
-            <ThemeProvider>
-              <AlertProvider template={CustomAlertTemplate} {...options}>
-                <Routes>
-                  <Route path="/broken" element={<AppWrapper><Home /></AppWrapper>} />
-                  <Route path="/about" element={<Layout><AppWrapper><About /></AppWrapper></Layout>} />
-                  <Route path="/broken" element={<Layout><AppWrapper><UnderConstruction /></AppWrapper></Layout>} />
-                  <Route path="/pikadex" element={<Layout><AppWrapper><Pikadex /></AppWrapper></Layout>} />
-                  <Route path="/contact" element={<Layout><AppWrapper><Contact /></AppWrapper></Layout>} />
-                  <Route path="/login" element={<Layout><AppWrapper><LoginPage /></AppWrapper></Layout>} />
-                  <Route path="/need-login" element={<Layout><AppWrapper><NeedToLoginPage /></AppWrapper></Layout>} />
-                  <Route path="/register" element={<Layout><AppWrapper><RegisterPage /></AppWrapper></Layout>} />
-                  <Route path="/browse" element={<Layout><AppWrapper><Browse /></AppWrapper></Layout>} />
-                  <Route path="/checkout" element={<Layout><AppWrapper><Checkout /></AppWrapper></Layout>} />
-                  <Route path="/music" element={<Layout><AppWrapper><Music /></AppWrapper></Layout>} />
-                  <Route path="/shop" element={<Layout><AppWrapper><Shop /></AppWrapper></Layout>} />
-                  <Route path="/success" element={<PaymentSuccessLayout><AppWrapper><PaymentSuccess /></AppWrapper></PaymentSuccessLayout>} />
-                  <Route path="/cancel" element={<PaymentSuccessLayout><AppWrapper><PaymentCancel /></AppWrapper></PaymentSuccessLayout>} />
-                  <Route path="/item/:id" element={<Layout><AppWrapper><ItemDetail /></AppWrapper></Layout>} />
-                  <Route path="/" element={<AppWrapper><LandingPage /></AppWrapper>} />
-                  <Route 
-                    path="/account" 
-                    element={
-                      <PrivateRoute>
-                        <Layout>
-                          <AppWrapper>
-                            <Account />
-                          </AppWrapper>
-                        </Layout>
-                      </PrivateRoute>
-                    } 
-                  />
-                  <Route 
-                    path="/favourites" 
-                    element={
-                      <PrivateRoute>
-                        <Layout>
-                          <AppWrapper>
-                            <Favourites />
-                          </AppWrapper>
-                        </Layout>
-                      </PrivateRoute>
-                    } 
-                  />
-                  <Route path="/*" element={<Layout><AppWrapper><NotFound /></AppWrapper></Layout>} />
-                </Routes>
-              </AlertProvider>
-            </ThemeProvider>
-          </FavouritesProvider>
+          <CartProvider>
+            <FavouritesProvider>
+              <ThemeProvider>
+                <AlertProvider template={CustomAlertTemplate} {...options}>
+                  <Routes>
+                    <Route path="/broken" element={<AppWrapper><Home /></AppWrapper>} />
+                    <Route path="/about" element={<Layout><AppWrapper><About /></AppWrapper></Layout>} />
+                    <Route path="/broken" element={<Layout><AppWrapper><UnderConstruction /></AppWrapper></Layout>} />
+                    <Route path="/pikadex" element={<Layout><AppWrapper><Pikadex /></AppWrapper></Layout>} />
+                    <Route path="/contact" element={<Layout><AppWrapper><Contact /></AppWrapper></Layout>} />
+                    <Route path="/login" element={<Layout><AppWrapper><LoginPage /></AppWrapper></Layout>} />
+                    <Route path="/need-login" element={<Layout><AppWrapper><NeedToLoginPage /></AppWrapper></Layout>} />
+                    <Route path="/register" element={<Layout><AppWrapper><RegisterPage /></AppWrapper></Layout>} />
+                    <Route path="/browse" element={<Layout><AppWrapper><Browse /></AppWrapper></Layout>} />
+                    <Route path="/checkout" element={<Layout><AppWrapper><Checkout /></AppWrapper></Layout>} />
+                    <Route path="/cart" element={<Layout><AppWrapper><Cart/></AppWrapper></Layout>} />
+                    <Route path="/music" element={<Layout><AppWrapper><Music /></AppWrapper></Layout>} />
+                    <Route path="/shop" element={<Layout><AppWrapper><Shop /></AppWrapper></Layout>} />
+                    <Route path="/success" element={<PaymentSuccessLayout><AppWrapper><PaymentSuccess /></AppWrapper></PaymentSuccessLayout>} />
+                    <Route path="/cancel" element={<PaymentSuccessLayout><AppWrapper><PaymentCancel /></AppWrapper></PaymentSuccessLayout>} />
+                    <Route path="/item/:id" element={<Layout><AppWrapper><ItemDetail /></AppWrapper></Layout>} />
+                    <Route path="/" element={<AppWrapper><LandingPage /></AppWrapper>} />
+                    <Route path="/account" element={<PrivateRoute><Layout><AppWrapper><Account /></AppWrapper></Layout></PrivateRoute>}/>
+                    <Route path="/favourites" element={<PrivateRoute><Layout><AppWrapper><Favourites /></AppWrapper></Layout></PrivateRoute>}/>
+                    <Route path="/*" element={<Layout><AppWrapper><NotFound /></AppWrapper></Layout>} />
+                  </Routes>
+                </AlertProvider>
+              </ThemeProvider>
+            </FavouritesProvider>
+          </CartProvider>
         </Elements>
       </AuthProvider>
     </Router>
