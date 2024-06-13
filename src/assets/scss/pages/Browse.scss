@@ -4,6 +4,16 @@
     align-items: center;
     justify-content: center;
 
+    &-text {
+        text-align: center;
+        font-size: 1.2rem;
+        margin: 0;
+    }
+
+    &-link {
+        color: black;
+    }
+
     &-container {
         max-width: 1400px;
         display: flex;

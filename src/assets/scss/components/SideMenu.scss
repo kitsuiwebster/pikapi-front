@@ -48,6 +48,7 @@
         height: auto;
         margin: 0.4rem 0;
         width: 100%;
+        position: relative;
     }
 
     &-icon {
@@ -71,12 +72,23 @@
         }
     }
 
-    &:hover {
-        .side-menu-text {
-            display: inline-block;
-            width: 8rem;
-            opacity: 1;
-        }
+    &:hover .side-menu-text {
+        display: inline-block;
+        width: 8rem;
+        opacity: 1;
+    }
+
+    &-cart-badge {
+        background-color: red;
+        color: white;
+        border-radius: 50%;
+        padding: 0.2em 0.5em;
+        margin: 0;
+        position: absolute;
+        top: 0.4rem;
+        left: -1rem;
+        transform: translate(50%, -50%);
+        font-size: 0.8rem;
     }
 }
 

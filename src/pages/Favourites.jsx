@@ -89,9 +89,9 @@ function Favourites() {
     if (!favourites.length) {
         return (
             <div className='favourites-nofav'>
-                <h1 className='title'>Your Favourites</h1>
+                <h1 className='title'>My Favourites</h1>
                 <p className='nofav'>🥺 No favourites to display.</p>
-                <img src={nofav} alt="No Favourites" className="img-scale" />
+                <img src={nofav} alt="No Favourites" className="img-scale favourites-img" />
             </div>
         );
     }

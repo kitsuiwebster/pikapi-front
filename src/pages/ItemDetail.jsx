@@ -1,5 +1,3 @@
-// src/components/ItemDetail.jsx
-
 import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import itemsData from '../js/shop-items';
@@ -70,10 +68,14 @@ function ItemDetail() {
       <h1 className="item-detail-title">{item.title}</h1>
       <p className="item-detail-description">{item.description}</p>
       <p className="item-detail-price">Price: {item.free ? 'Free' : `$${item.price}`}</p>
-      <button className="button">
-        {item.free ? 'Download Now' : 'Buy Now'}
-      </button>
-      <button className="button" onClick={() => addToCart(item)}>Add to Cart</button>
+      <div className='item-detail-buttons'>
+        <button className="button">
+          {item.free ? 'Download Now' : 'Buy Now'}
+        </button>
+        {!item.free && (
+          <button className="button" onClick={() => addToCart(item)}>Add to Cart</button>
+        )}
+      </div>
       <p className="item-detail-disclaimer">* This is a digital item. No physical product will be shipped.</p>
     </div>
   );

@@ -111,8 +111,8 @@ const itemsData = [
         iconPath: phoneWallpaper,
         tags: ['umbrella', 'night', 'ride'],
         type: 'Phone Wallpaper',
-        free: true,
-        description: freePhoneWallpaperDescription,
+        free: false,
+        description: paidPhoneWallpaperDescription,
         numberOfTimePurchased: 0
     }
 ];

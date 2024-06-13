@@ -5,6 +5,7 @@ import { useAlert } from 'react-alert';
 import { useAuth } from '../AuthContext';
 import '../assets/scss/pages/Browse.scss';
 import { url } from '../index';
+import { Link } from 'react-router-dom';
 
 
 
@@ -89,6 +90,9 @@ function Browse() {
         <div id="browse">
             <div className='browse'>
                 <h1 className='title'>Browse Illustrations</h1>
+                <p className='browse-text'>
+                    Visit <Link className='browse-link' to="/favourites">My Favourites</Link> to download pictures
+                </p>
                 <input
                     className='input'
                     type="text"

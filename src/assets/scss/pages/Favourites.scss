@@ -17,7 +17,23 @@
         font-weight: 500;
     }
 
+    &-img {
+        width: 20rem;
+        height: 20rem;
+        object-fit: cover;
+        margin-right: 1em;
+    }
+
     .dark & {
         color: white;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .favourites {
+        &-img {
+            width: 10rem;
+            height: 10rem;
+        }
     }
 }
