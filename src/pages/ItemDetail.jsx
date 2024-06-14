@@ -38,7 +38,7 @@ const PrevArrow = (props) => {
 function ItemDetail() {
   const { id } = useParams();
   const item = itemsData.find(item => item.id === parseInt(id));
-  const { addToCart, cart } = useContext(CartContext);
+  const { addToCart } = useContext(CartContext);
   const alert = useAlert();
 
   if (!item) {
