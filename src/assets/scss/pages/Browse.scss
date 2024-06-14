@@ -20,5 +20,13 @@
         flex-wrap: wrap;
         justify-content: center;
     }
+
+    .dark & {
+        color: white;
+
+        &-link {
+            color: white;
+        }
+    }
 }
 
