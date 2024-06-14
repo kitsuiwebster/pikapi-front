@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import itemsData from '../js/shop-items';
 import { CartContext } from '../CartContext';
+import { useAlert } from 'react-alert';
 import Slider from 'react-slick';
 import '../assets/scss/pages/ItemDetail.scss';
 import '../assets/scss/index.scss';
@@ -37,7 +38,8 @@ const PrevArrow = (props) => {
 function ItemDetail() {
   const { id } = useParams();
   const item = itemsData.find(item => item.id === parseInt(id));
-  const { addToCart } = useContext(CartContext);
+  const { addToCart, cart } = useContext(CartContext);
+  const alert = useAlert();
 
   if (!item) {
     return <div>Item not found</div>;
@@ -52,6 +54,11 @@ function ItemDetail() {
     adaptiveHeight: true,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />
+  };
+
+  const handleAddToCart = () => {
+    addToCart(item);
+    alert.show(`${item.title} added to cart!`, { type: 'success' });
   };
 
   return (
@@ -73,11 +80,11 @@ function ItemDetail() {
         <p className="item-detail-description">{item.description}</p>
         <p className="item-detail-price">Price: {item.free ? 'Free' : `$${item.price}`}</p>
         <div className='item-detail-buttons'>
-          <button className="button">
+          <button className="button" onClick={handleAddToCart}>
             {item.free ? 'Download Now' : 'Buy Now'}
           </button>
           {!item.free && (
-            <button className="button" onClick={() => addToCart(item)}>Add to Cart</button>
+            <button className="button" onClick={handleAddToCart}>Add to Cart</button>
           )}
           <Link to="/cart" className="button item-detail-cart-button">View Cart</Link>
         </div>
