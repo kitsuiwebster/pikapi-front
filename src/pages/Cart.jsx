@@ -4,6 +4,8 @@ import { CartContext } from '../CartContext';
 import '../assets/scss/pages/Cart.scss';
 import '../assets/scss/index.scss';
 import emptyCardImg from '../assets/images/empty-cart.avif';
+import axios from 'axios';
+import { url } from '../index';
 
 function Cart() {
   const { cartItems, removeFromCart } = useContext(CartContext);
@@ -32,10 +34,30 @@ function Cart() {
     return totalPrice;
   };
 
-  const handleCheckout = () => {
-    // Implement your checkout logic here
-    alert('Redirecting to payment gateway...');
+  const handleCheckout = async () => {
+    try {
+        const items = cartItems.map(item => ({
+            name: item.title,
+            amount: item.free ? 0 : parseFloat(item.price) * 100, // Convert to cents
+            quantity: 1, // Assuming quantity is always 1 for simplicity
+            downloadId: item.downloadId // Ensure this property is available in your cart item structure
+        }));
+
+        const response = await axios.post(`${url}/payments/create-cart-checkout-session`, { items });
+        const stripe = window.Stripe(process.env.REACT_APP_STRIPE_TESTING_PUBLIC_KEY);
+        const { error } = await stripe.redirectToCheckout({ sessionId: response.data.sessionId });
+
+        if (error) {
+            console.error('Error in redirecting to Stripe Checkout:', error.message);
+        }
+    } catch (error) {
+        console.error('Error creating checkout session:', error.response?.data?.error || error.message);
+    }
   };
+
+
+  
+  
 
   return (
     <div className="cart">

@@ -10,7 +10,7 @@ import paypalLogo from '../assets/images/paypal.png';
 import gpayLogo from '../assets/images/gpay.png';
 import applepayLogo from '../assets/images/apple-pay.png';
 
-function DownloadModal({ onClose, link1k, selectedPictureId }) { // Include selectedPictureId in the props
+function DownloadModal({ onClose, link1k, selectedPictureId }) { 
     useEffect(() => {
         const handleEsc = (event) => {
             if (event.keyCode === 27) onClose();

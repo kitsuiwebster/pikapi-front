@@ -32,6 +32,7 @@ import PaymentCancel from './pages/PaymentCancel';
 import ItemDetail from './pages/ItemDetail';
 import Cart from './pages/Cart';
 import { CartProvider } from './CartContext';
+import ShopPaymentSuccess from './pages/ShopPaymentSuccess';
 
 const stripePromise = loadStripe('pk_test_yourPublishableKey');
 
@@ -66,6 +67,7 @@ const App = () => {
                     <Route path="/music" element={<Layout><AppWrapper><Music /></AppWrapper></Layout>} />
                     <Route path="/shop" element={<Layout><AppWrapper><Shop /></AppWrapper></Layout>} />
                     <Route path="/success" element={<PaymentSuccessLayout><AppWrapper><PaymentSuccess /></AppWrapper></PaymentSuccessLayout>} />
+                    <Route path="/shop-payment-success" element={<PaymentSuccessLayout><AppWrapper><ShopPaymentSuccess/></AppWrapper></PaymentSuccessLayout>} />
                     <Route path="/cancel" element={<PaymentSuccessLayout><AppWrapper><PaymentCancel /></AppWrapper></PaymentSuccessLayout>} />
                     <Route path="/item/:id" element={<Layout><AppWrapper><ItemDetail /></AppWrapper></Layout>} />
                     <Route path="/" element={<AppWrapper><LandingPage /></AppWrapper>} />
